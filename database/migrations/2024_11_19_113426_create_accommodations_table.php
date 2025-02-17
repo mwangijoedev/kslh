@@ -26,10 +26,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('location');
             $table->integer('cost');
-            $table->string('photo');
+            // $table->string('photo');
             $table->foreignIdFor(User::class);
             $table->timestamps();
-        });
+        }); 
 
         //tag
         Schema::create('deals', function (Blueprint $table) {
