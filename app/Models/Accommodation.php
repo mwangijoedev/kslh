@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Deal;
+
 use App\Models\Property;
 use App\Models\Amenitie;
 use App\Models\Popular;
@@ -21,7 +22,6 @@ class Accommodation extends Model
         'title',
         'location',
         'cost',
-        'photo',
         'user_id',
     ];
 
