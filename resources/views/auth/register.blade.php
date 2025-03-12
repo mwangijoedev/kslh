@@ -1,6 +1,6 @@
 <x-layout1>
 <div class=" relative min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-no-repeat bg-cover bg-center top-0 rounded-lg " style="background-image: url('{{ Vite::asset('resources/images/beach.jpg') }}');" >
-<div class=" absolute w-full sm:max-w-md glass px-6 py-4 mt-6 font-audiowide shadow-xl overflow-hidden left-10 sm:rounded-lg">
+<div class=" absolute w-full sm:max-w-md glass px-6 py-6 mt-6 font-audiowide shadow-xl overflow-hidden left-10 sm:rounded-lg">
     <form method="POST" action="{{ route('register') }}">
          
         @csrf
