@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css', 'resources/js/app.js')
-    <title>Wakurugenzi Store</title>
+    <title>KSLH</title>
     <link rel="icon" href="{{Vite::asset('resources/images/logo3.png')}}" type="image/x-icon">
     <style>
         .no-scrollbar::-webkit-scrollbar {
@@ -22,11 +22,9 @@
 <nav class=" z-50 bg-transparent hover:bg-white transition-ease-in-out duration-500 hover:bg-opacity-20 hover:rounded hover:rounded-lg flex justify-between items-center sticky top-0 xsm:flex-col sm:flex-col  md:flex-row ">
         <a href="/" wire:navigate > <div class=" px-10 py-10 bg-transparent bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/logo6.png')}}');" ></div></a>
         <div class="space-x-6 font-bold text-green-400 xs-flex xs:flex-col sm:flex-row">
-            <a href="/showproducts" wire:navigate class="hover:text-green-600 transition duration-300">Merch</a>      
-            <a href="/tshirts" wire:navigate class="hover:text-green-600 transition duration-300">T-Shirts</a>
-            <a href="/sweatshirts" wire:navigate class="hover:text-green-600 transition duration-300">Sweatshirts</a>  
-            <a href="/hoodies" wire:navigate class="hover:text-green-600 transition duration-300">Hoodies</a>
-            <a href="/jackets" wire:navigate class="hover:text-green-600 transition duration-300">Jackets</a> 
+            <a href="/sweatshirts" wire:navigate class="hover:text-green-600 transition duration-300">Ngulia</a>  
+            <a href="/hoodies" wire:navigate class="hover:text-green-600 transition duration-300">Voi</a>
+            <a href="/jackets" wire:navigate class="hover:text-green-600 transition duration-300">Mombassa</a> 
         </div>
         <div class="space-x-6"> 
             @guest    
@@ -55,20 +53,14 @@
             <p class=" ml-10 text-center text-gray-600 font-bold text-3xl">Quick links</p>
 
             <div class=" ml-20 flex flex-col text-white ">
-                <a href="/showproducts" wire:navigate class="hover:text-green-600 transition duration-300">Merch</a>      
-                <a href="/tshirts" wire:navigate class="hover:text-green-600 transition duration-300">T-Shirts</a>
-                <a href="/sweatshirts" wire:navigate class="hover:text-green-600 transition duration-300">Sweatshirts</a>  
-                <a href="/hoodies" wire:navigate class="hover:text-green-600 transition duration-300">Hoodies</a>
-                <a href="/jackets" wire:navigate class="hover:text-green-600 transition duration-300">Jackets</a>
-                <a href="/showtickets" wire:navigate class="hover:text-green-600 transition duration-300">Grab a ticket</a>
-
+                <a href="/sweatshirts" wire:navigate class="hover:text-green-600 transition duration-300">Ngulia</a>  
+                <a href="/hoodies" wire:navigate class="hover:text-green-600 transition duration-300">Voi</a>
+                <a href="/jackets" wire:navigate class="hover:text-green-600 transition duration-300">Mombassa</a> 
             </div>
             <div class=" ml-20 flex flex-col text-white ">
-                <a href="/Blog" wire:navigate class="hover:text-green-600 transition duration-300">Blog</a>
-                <a href="/createproducts" wire:navigate class="hover:text-green-600 transition duration-300">Create Products</a>      
-                <a href="/createtickets" wire:navigate class="hover:text-green-600 transition duration-300">Create Tickets</a>
-                <a href="/showtickets" wire:navigate class="hover:text-green-600 transition duration-300">Trinity Experience</a>  
-                <a href="https://njugush.ke/en-us/?hls=true" wire:navigate class="hover:text-green-600 transition duration-300">Njugush.ke</a>
+                <a href="/sweatshirts" wire:navigate class="hover:text-green-600 transition duration-300">Ngulia</a>  
+                <a href="/hoodies" wire:navigate class="hover:text-green-600 transition duration-300">Voi</a>
+                <a href="/jackets" wire:navigate class="hover:text-green-600 transition duration-300">Mombassa</a> 
                 <a href="/search/accommodation" wire:navigate class="hover:text-green-600 transition duration-300">Get Accommodation</a>
                 <a href="/createaccommodation" wire:navigate class="hover:text-green-600 transition duration-300">Add Accommodation</a>
 
@@ -89,8 +81,8 @@
                         <a href="https://www.instagram.com/abelmutua/" target="_blank" ><div class=" px-5 py-5 bg-transparent bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/youtube.png')}}');"></div></a>
                     </div>
                    
-                    <p class="text-xl text-gray-700">Telephone : +254 716 265 661</p>
-                    <p class="text-xl text-gray-700">Email: info@mkurugenzi.co.ke</p>
+                    <p class="text-xl text-gray-700">Telephone : +254 7** *** ***</p>
+                    <p class="text-xl text-gray-700">Email: info@kslh.co.ke</p>
             </form>
 
             </div>
@@ -98,7 +90,7 @@
         <div class="flex flex-col justify-center items-center bg-transparent text-gray-700 font-bold text-xl p-8  text-center">
             <div class=" px-10 py-10 bg-transparent bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/logo3.png')}}');"></div>
 
-            <p>&copy; 2024 Wakurugenzi Productions All rights reserved.</p>
+            <p>&copy; 2025 KSLH All rights reserved.</p>
             <div class="mt-4">
                 <a href="#" class="hover:text-green-600 transition duration-300 mx-2">Privacy Policy</a>
                 <a href="#" class="hover:text-green-600 transition duration-300 mx-2">Terms of Service</a>

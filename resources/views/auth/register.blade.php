@@ -1,5 +1,8 @@
-<x-guest-layout>
+<x-layout1>
+<div class=" relative min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-no-repeat bg-cover bg-center top-0 rounded-lg " style="background-image: url('{{ Vite::asset('resources/images/beach.jpg') }}');" >
+<div class=" absolute w-full sm:max-w-md glass px-6 py-4 mt-6 font-audiowide shadow-xl overflow-hidden left-10 sm:rounded-lg">
     <form method="POST" action="{{ route('register') }}">
+         
         @csrf
 
         <!-- Name -->
@@ -40,7 +43,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 font-sans dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
@@ -49,4 +52,7 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</div>
+</div>
+
+</x-layout2>

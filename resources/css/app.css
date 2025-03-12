@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/forms';
@@ -8,7 +10,12 @@
   --font-sans:
     Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  
+  --font-audiowide:
+    Audiowide, sans-serif;
 }
+
+
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -26,4 +33,55 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+/* @theme {
+
+}
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    theme: {
+      extend: {
+        gridTemplateRows: {
+          '[auto,auto,1fr]': 'auto auto 1fr',
+        },
+      },
+    },
+  }
+  ```
+--> */
+
+.content{
+  display:none;
+}
+
+.loader{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+
+
+  ;
+}
+
+
+.glass{
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:0 8px 32px 0 rgba(0,0,0,0.37);
 }
