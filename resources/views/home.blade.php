@@ -32,7 +32,7 @@
           <div class="hidden lg:flex lg:gap-x-12 z-1">
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">ngulia</a>  
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">voi</a>
-            <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">mombassa</a> 
+            <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">mombasa</a> 
           </div>
           
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -58,9 +58,9 @@
             <div class="mt-6 flow-root">
               <div class="-my-6 divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-                <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Ngulia</a>  
-            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Voi</a>
-            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Mombassa</a> 
+                <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">ngulia</a>  
+            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">voi</a>
+            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">mombasa</a> 
                 </div>
                 <div class="py-6">
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
@@ -89,7 +89,7 @@
             <h1 class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-3xl antialiased ">Kenya Safari Lodges and Hotels</h1>
             <p class="mt-5 text-sm font-medium text-pretty text-white sm:text-sm">Accommodation packages that match your style</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a href="/login" class="rounded-md bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-transparent transition-all ease-in-out duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">View packages</a>
+              <a href="/accommodation/7" class="rounded-md bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-transparent transition-all ease-in-out duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">View packages</a>
             </div>
           </div>
         </div>

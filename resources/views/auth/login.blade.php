@@ -1,8 +1,10 @@
 <x-layout1>
     <!-- Session Status -->
+    <div class=" relative min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-no-repeat bg-cover bg-center top-0 rounded-lg " style="background-image: url('{{ Vite::asset('resources/images/beach.jpg') }}');" >
+
     <x-auth-session-status class="mb-4" :status="session('status')" />
-    <div class=" relative min-h-screen flex flex-col z-5 sm:justify-center items-center sm:pt-0 bg-no-repeat bg-cover bg-center blur-2xl rounded-lg " style="background-image: url('{{ Vite::asset('resources/images/voi2.png') }}');" >
-    <div class=" w-full sm:max-w-md mt-6 px-6 py-4 bg-lime-950 shadow-xl overflow-hidden  sm:rounded-lg">
+    <div class=" absolute top-0 left-0 right-0 bottom-0 min-h-screen flex flex-col z-5 sm:justify-center items-center sm:pt-0 bg-no-repeat bg-cover bg-center rounded-lg " style="background-image: url('{{ Vite::asset('resources/images/hut.jpg') }}');" >
+    <div class=" w-full sm:max-w-md mt-6 px-6 py-4 glass shadow-xl overflow-hidden  sm:rounded-lg">
         <form method="POST" action="{{ route('login') }}" class=" z-3 " >
             @csrf
             <!-- Email Address -->
@@ -40,5 +42,6 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 </x-layout1>

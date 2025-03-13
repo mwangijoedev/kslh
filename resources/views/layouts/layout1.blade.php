@@ -15,7 +15,7 @@
   <div>
     <div class="bg-transparent">
       <header>
-        <nav class=" absolute top-0 right-0 left-0 glass flex items-center justify-between p-4 lg:px-8 rounded-sm z-1" aria-label="Global">
+        <nav class=" absolute top-0 right-0 left-0 glass flex items-center justify-between p-4 lg:px-8 rounded-sm z-0" aria-label="Global">
           <div class="flex lg:flex-1">
             <a href="/" wire:navigate class="-m-1.5 p-1.5 hidden sm:block z-1 ">
               <span class="text-amber-700 font-audiowide font-bold text-xl ">KSLH</span>
@@ -32,7 +32,7 @@
           <div class="hidden lg:flex lg:gap-x-12 z-1">
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 hover:scale-101 transition-all ease-in-out duration-200 ">ngulia</a>  
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-200">voi</a>
-            <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-200">mombassa</a> 
+            <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-200">mombasa</a> 
           </div>
           
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
