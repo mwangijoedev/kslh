@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
+use App\Models\Accommodation;
 
 class UserController extends Controller
 {
@@ -28,6 +29,12 @@ class UserController extends Controller
        Auth::user()->update($attributes);
 
        return redirect('/profile');
+    }
+
+    public function dashboard(){
+        $packages = Accommodation::all();
+
+        return view("dashboard", ['user'=>Auth::user(), 'packages'=>$packages]);
     }
 
 

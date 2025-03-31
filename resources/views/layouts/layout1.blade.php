@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>KSLH Applicaton</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+<!-- #region -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     
 </head>
@@ -11,11 +12,11 @@
   <div class="loader bg-lime-950 flex flex-cols justify-center items-center ">
     <p class=" font-audiowide text-sm md:text-4xl animate-pulse text-amber-700 text-center ">KSLH</p>
   </div>
-<div class="bg-lime-950 h-screen relative top-0 left-0 bottom-0 right-0 md:relative overflow-hidden content ">
+<div class="h-screen relative top-0 left-0 bottom-0 right-0 md:relative overflow-hidden content ">
   <div>
     <div class="bg-transparent">
       <header>
-        <nav class=" absolute top-0 right-0 left-0 glass flex items-center justify-between p-4 lg:px-8 rounded-sm z-0" aria-label="Global">
+        <nav class=" absolute top-0 right-0 left-0 glass flex items-center justify-between p-4 lg:px-8 rounded-sm z-4" aria-label="Global">
           <div class="flex lg:flex-1">
             <a href="/" wire:navigate class="-m-1.5 p-1.5 hidden sm:block z-1 ">
               <span class="text-amber-700 font-audiowide font-bold text-xl ">KSLH</span>
@@ -34,10 +35,17 @@
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-200">voi</a>
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-200">mombasa</a> 
           </div>
-          
+          @guest
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="/login" class="text-sm/6 font-audiowide font-semibold text-gray-900 z-1 hover:text-amber-700 transition-all ease-in-out duration-500 ">log&nbsp;in <span aria-hidden="true">&rarr;</span></a>
           </div>
+          @endguest
+          @auth
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="" class="text-sm/6 font-audiowide font-semibold text-gray-900 z-1 hover:text-amber-700 transition-all ease-in-out duration-500 ">{{ Auth::user()->name;}}<span aria-hidden="true">&rarr;</span></a>
+          </div>
+          @endauth
+          
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
         <!-- <div class="lg:hidden" role="dialog" aria-modal="true"> -->
@@ -79,8 +87,8 @@
 
   <script>
     $(window).on('load', function(){
-      $(".loader").fadeOut(1700);
-      $(".content").fadeIn(0);
+      $(".loader").fadeOut(3000);
+      $(".content").fadeIn(3000);
     });
 
   </script>

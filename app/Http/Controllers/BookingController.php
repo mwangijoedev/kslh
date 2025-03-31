@@ -23,9 +23,9 @@ class BookingController extends Controller
 
         //loyalty points awarding system
         //simple version
-        $cost = Accommodation::find($id)->cost;
+        $price = Accommodation::find($id)->price;
 
-        $points = $cost/100;
+        $points = $price/100;
 
         
 

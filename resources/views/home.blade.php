@@ -12,7 +12,7 @@
     <p class=" font-audiowide text-sm md:text-4xl animate-pulse text-amber-700 text-center ">KSLH</p>
   </div>
 <div class="bg-lime-950 h-screen overflow-hidden absolute md:relative content">
-  <div style="background-image: url('{{ Vite::asset('resources/images/voi2.png') }}');" class= "bg-no-repeat bg-contain bg-top " >
+  <div style="background-image: url('{{ Vite::asset('resources/images/kslh1.png') }}');" class= "bg-no-repeat bg-contain bg-top " >
     <div class="bg-transparent">
       <header>
         <nav class="flex items-center justify-between p-6 lg:px-8 z-1" aria-label="Global">
@@ -34,10 +34,16 @@
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">voi</a>
             <a href="/accommodations" wire:navigate class=" font-audiowide text-black hover:text-amber-700 transition-all ease-in-out duration-500">mombasa</a> 
           </div>
-          
+          @auth
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="/dashboard" class="text-sm/6 font-audiowide  font-semibold text-gray-900 z-1 hover:text-amber-700 transition-all ease-in-out duration-500 ">{{ Auth::user()->name }} <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          @endauth
+          @guest
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="/login" class="text-sm/6 font-audiowide  font-semibold text-gray-900 z-1 hover:text-amber-700 transition-all ease-in-out duration-500 ">log&nbsp;in <span aria-hidden="true">&rarr;</span></a>
           </div>
+          @endguest
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
         <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -105,8 +111,8 @@
 
   <script>
     $(window).on('load', function(){
-      $(".loader").fadeOut(1700);
-      $(".content").fadeIn(1700);
+      $(".loader").fadeOut(3000);
+      $(".content").fadeIn(3000);
     });
 
   </script>

@@ -21,7 +21,6 @@ class BookingFactory extends Factory
         return [
             'accommodation_id'=>Accommodation::factory(),
             'user_id'=>User::factory(),
-
         ];
     }
 }

@@ -90,7 +90,8 @@
           </div>
         </div>
 
-        <form class="mt-10">
+        <form method="post" action="/book/{{ $accommodation->id }}" class="mt-10">
+          @csrf
 
           <!-- Options -->
           <div class="mt-10">

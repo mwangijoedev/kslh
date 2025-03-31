@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Asset;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +23,7 @@ class AccommodationFactory extends Factory
             
             'description'=>'Experience the perfect blend of luxury, relaxation, and adventure with our exclusive accommodation packages. Whether you\'re seeking a serene escape, a romantic retreat, or a fun-filled family getaway, we have the ideal stay for you. Enjoy world-class amenities, breathtaking views, and personalized service, all designed to make your stay truly memorable.
 
-Book now and turn your trip into an extraordinary experience!',
+            Book now and turn your trip into an extraordinary experience!',
 
             'package_type'=>fake()->randomElement(['Luxury','Beach Resort', 'Business Trip', 'Budget Stay', 'Tented Camp', 'Couple Staycation','Overwater Bungalow', 'Beachfront Villa','Oceanview Suite','Thatched-Roof Cottage','Floating Bungalow','Safari Lodge','Luxury Tented Camp', 'Stone Boma Hut']),
 
@@ -52,11 +51,12 @@ Book now and turn your trip into an extraordinary experience!',
 
             'currency'=>fake()->randomElement(['USD','EUR','KES']),
 
-            'available dates'=>fake()->randomElement(['May to June', 'Feb to April', 'December', 'Easter Holiday', '14th Feb']),
-            
+            'from'=>fake()->date(),       
+
+            'to'=>fake()->date(),      
+
             'user_id'=>User::factory(),
-            'asset_id'=>Asset::factory(),
-            
+
         ];
     }
 }
