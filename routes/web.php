@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\userloginController;
 use App\Http\Controllers\AccommodationController;
+use App\Http\Controllers\MpesaController;
 use Illuminate\Support\Facades\Route;
 
 
