@@ -95,7 +95,7 @@
             <h1 class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-3xl antialiased ">Kenya Safari Lodges and Hotels</h1>
             <p class="mt-5 text-sm font-medium text-pretty text-white sm:text-sm">Accommodation packages that match your style</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a href="/accommodation/7" class="rounded-md bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-transparent transition-all ease-in-out duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">View packages</a>
+              <a href="/accommodation/1" class="rounded-md bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-transparent transition-all ease-in-out duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">View packages</a>
             </div>
           </div>
         </div>

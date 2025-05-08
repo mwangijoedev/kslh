@@ -15,8 +15,13 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Accommodation::class);
+            $table->string('user_name');
             $table->foreignIdFor(User::class);
+            $table->string('accommodation_name');
+            $table->foreignIdFor(Accommodation::class);
+            $table->decimal('price', 8, 2);
+            $table->decimal('points_earned', 8, 2);
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

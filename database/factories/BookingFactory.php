@@ -19,8 +19,13 @@ class BookingFactory extends Factory
     public function definition(): array
     {
         return [
-            'accommodation_id'=>Accommodation::factory(),
+            'user_name'=>User::factory(),
             'user_id'=>User::factory(),
+            'accommodation_name'=>"TEST",
+            'accommodation_id'=>Accommodation::factory(),
+            'price'=>1000,
+            'points_earned'=>2,
+            'status'=>'pending', 
         ];
     }
 }

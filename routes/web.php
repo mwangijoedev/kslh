@@ -6,44 +6,36 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\userloginController;
 use App\Http\Controllers\AccommodationController;
 use App\Http\Controllers\MpesaController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/login', function () {
+	return view('auth.login');
+})->name('login');
+Route::post('/login',[userloginController::class, 'create']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+	Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('verified')->name('dashboard');
+	Route::get('/accommodation/{id}', [AccommodationController::class, 'show'])->name('accommodation.show');
+	Route::get('/create',function(){
+		return view('accommodations.create');
+	})->name('accommodation.create');
+	Route::post('/accommodations/store',[AccommodationController::class, 'store'])->name('accommodation.store');
+	Route::post('book/{id}', [BookingController::class, 'store']);
 });
 
-Route::get('/home', function () {
-	return view('home');
-})->name('home');
-Route::get('/register', function () {
-	return view('home');
+Route::get('/test', function(Request $request){
+	dd($request->session()->all());
 });
-Route::get('/login', function () {
-	return view('auth.login');
-});
-Route::post('/login',[userloginController::class, 'create']);
 
-Route::get('/accommodation/{id}',[AccommodationController::class, 'show']);
 
-Route::get('/accommodations', function () {
-	return view('accommodations.show');
-})->middleware('auth');
-
-Route::get('/accommodations/create', function () {
-	return view('accommodations.create');
-})->middleware('auth');
-
-Route::post('/accommodations/store',[AccommodationController::class, 'store'])->middleware('auth')->name('accommodation.store');
-
-Route::post('book/{id}', [BookingController::class, 'store'])->middleware('auth');
 
 require __DIR__.'/auth.php';

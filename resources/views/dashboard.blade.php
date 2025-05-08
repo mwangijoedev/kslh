@@ -1,14 +1,32 @@
-<x-layout1 class="relative">
-    <div class="">
+<x-layout1>
+    <div class="relative h-[1000px] w-full bg-lime-200 ">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Dashboard') }}
             </h2>
         </x-slot>
-        <div class="absolute top-0 left-0 right-0 bottom-0 mt-20 flex flex-row justify-start no-wrap ">
+
+        {{-- Flash messages --}}
+        @foreach (['success', 'error', 'status'] as $msg)
+            @if (session($msg))
+                <div class="alert alert-{{ $msg }} mt-20 mb-10" 
+                x-data="{ show: true }" 
+                x-show="show" 
+                x-init="setTimeout(() => show = false, 10000)"
+                >
+                    {{ session($msg) }}
+                </div>
+            @endif
+        @endforeach
+        <div class="absolute h-screen left-0 right-0  mt-20 flex flex-row justify-start no-wrap ">
             <!-- left Navigation   -->
             <div id="left-Navigation" class="hidden lg:block">
-                <nav class="grid grid-cols-1 overflow-scroll gap-1 justify-center items-center border-r-[2px] border-gray-400 px-8.5 py-5 h-screen no-scrollbar ">
+                <nav 
+                    class="grid grid-cols-1 overflow-scroll gap-1 justify-center 
+                            items-center border-r-[2px] border-gray-400 px-8.5 
+                            py-5 h-screen no-scrollbar
+                            bg-lime-200 
+                ">
                     <div class="p-13 overflow-hidden rounded-full bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/profile-pic.jpeg') }}');">
                     </div>
                     <div class="font-audiowide text-black text-sm text-center">
@@ -40,21 +58,22 @@
                 </nav>
             </div>
             <!-- Recent Bookings Section   -->
-            <div class=" h-screen grow border border-gray-400 rounded-sm mx-5 my-5 overflow-scroll no-scrollbar px-5">
+            <div class=" bg-lime-100 h-screen grow rounded-sm mx-5 my-5 overflow-scroll no-scrollbar px-5 ">
                 <div class=" py-6 ">
-                    <p class="text-center text-black text-xl font-bold">Recent Bookings</p>
-                    <p class="text-sm text-black">Here is a list of bookings you made recently</p>
+                    <p class="text-center text-black text-xl font-bold">Welcome {{$user->name}}</p>
+                    <p class="text-center text-black text-xl font-bold">Available Packages</p>
+                  
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 " >
                     @foreach ($packages as $package)
-                        <div class=" flex flex-col max-w-sm bg-gray-900 ">
+                        <div class=" flex flex-col max-w-sm bg-lime-200 ">
                             <div class=" px-15 py-20 rounded-t rounded-lg bg-gray-100 relative " > 
                                 <div class="bg-cover bg-center absolute top-0 left-0 right-0 bottom-0 rounded-xl" style="background-image: url('{{ Vite::asset('resources/images/safari.jpg') }}');" ></div>
                             </div>
                             <div class=" grid grid-cols-1 gap-2 p-5">
                                 <div>
-                                    <p class="text-black text-sm text-start font-audiowide ">{{ $package->name }}</p>
+                                    <p class="text-black text-sm text-start ">{{ $package->name }}</p>
                                 </div>
                                 <div class=" overflow-hidden hover:overflow-scroll no-scrollbar max-h-md ">
                                     <p class="text-black text-sm">{{ $package->description }}</p>

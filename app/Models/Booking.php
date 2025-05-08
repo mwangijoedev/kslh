@@ -13,7 +13,16 @@ class Booking extends Model
     //
 
     protected $fillable = [
+        'user_name',
         'user_id',
+        'accommodation_name',
         'accommodation_id',
+        'price',
+        'points_earned',
+        'status',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

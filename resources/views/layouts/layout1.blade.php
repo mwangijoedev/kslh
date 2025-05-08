@@ -12,7 +12,7 @@
   <div class="loader bg-lime-950 flex flex-cols justify-center items-center ">
     <p class=" font-audiowide text-sm md:text-4xl animate-pulse text-amber-700 text-center ">KSLH</p>
   </div>
-<div class="h-screen relative top-0 left-0 bottom-0 right-0 md:relative overflow-hidden content ">
+<div class="h-screen relative top-0 left-0 bottom-0 right-0 md:relative overflow-scroll no-scrollbar content">
   <div>
     <div class="bg-transparent">
       <header>

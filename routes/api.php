@@ -2,9 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MpesaController;
 
-// Define your API routes here
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
-Route::post('/mpesa/stkpush', [MpesaController::class, 'initiateStkPush']);
 
+Route::get("/test-1", function () {
+    dump("hello");
+});

@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <form method="post" action="/book/{{ $accommodation->id }}" class="mt-10">
+        <form method="POST" action="/book/{{ $accommodation->id }}" class="mt-10">
           @csrf
 
           <!-- Options -->
@@ -187,7 +187,7 @@
               </div>
             </fieldset>
           </div>
-
+          {{-- Book Button  --}}
           <button type="submit" role="button" tabindex="0" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Reserve your spot</button>
         </form>
       </div>
@@ -198,15 +198,18 @@
           <h3 class="sr-only">Description</h3>
 
           <div class="space-y-6">
-            <p class="text-base text-gray-900">Discover Mombasa: Where Safari Meets the Sea! 🌴🐘🌊
-
-            Escape to Mombasa with our exclusive travel packages, blending the thrill of a wildlife safari with the serenity of pristine beaches. Stay in luxurious safari lodges, embark on breathtaking game drives, and soak in the rich Swahili culture. Whether you crave adventure or relaxation, Mombasa is your perfect getaway. Book now and let the magic begin! ✨🚀</p>
+            <p class="text-base text-gray-900">{{$accommodation->description}}! 🌴🐘🌊
+            Escape reality with our exclusive travel packages, 
+            blending the thrill of a wildlife safari with the serenity of pristine beaches. 
+            Stay in luxurious safari lodges, embark on breathtaking game drives,
+            and soak in the rich Swahili culture. 
+            Whether you crave adventure or relaxation, this is your perfect getaway. 
+            Book now and let the magic begin! ✨🚀</p>
           </div>
         </div>
 
-        <div class="mt-10">
+        {{-- <div class="mt-10">
           <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-
           <div class="mt-4">
             <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
               <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->highlight1 }}</span></li>
@@ -215,31 +218,14 @@
               <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->highlight4 }}</span></li>
             </ul>
           </div>
-        </div>
+        </div> --}}
 
         <div class="mt-4">
             <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
               <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->day1 }}</span></li>
-              <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->day2 }}</span></li>
-              <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->day3 }}</span></li>
+              {{-- <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->day2 }}</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">✔ {{ $accommodation->day3 }}</span></li> --}}
             </ul>
-          </div>
-        </div>
-
-        <div class="mt-10">
-          <h2 class="text-sm font-medium text-gray-900">Package Inclusions</h2>
-          <div class="mt-4 space-y-6">
-          @foreach ($inclusions as $inclusion)
-            <p class="text-sm text-gray-600">{{ $inclusion }}</p>
-            @endforeach
-          </div>
-        </div>
-        <div class="mt-10">
-          <h2 class="text-sm font-medium text-gray-900">Package Exclusions</h2>
-          <div class="mt-4 space-y-6">
-            @foreach ($exclusions as $exclusion)
-            <p class="text-sm text-gray-600">{{ $exclusion }}</p>
-            @endforeach
           </div>
         </div>
       </div>
