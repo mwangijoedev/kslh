@@ -12,7 +12,7 @@
                 <div class="alert alert-{{ $msg }} mt-20 mb-10" 
                 x-data="{ show: true }" 
                 x-show="show" 
-                x-init="setTimeout(() => show = false, 10000)"
+                x-init="setTimeout(() => show = false, 3000)"
                 >
                     {{ session($msg) }}
                 </div>

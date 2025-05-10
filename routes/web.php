@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\userloginController;
 use App\Http\Controllers\AccommodationController;
 use App\Http\Controllers\MpesaController;
+use App\Http\Controllers\wizardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
 	return view('auth.login');
 })->name('login');
-Route::post('/login',[userloginController::class, 'create']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
 	})->name('accommodation.create');
 	Route::post('/accommodations/store',[AccommodationController::class, 'store'])->name('accommodation.store');
 	Route::post('book/{id}', [BookingController::class, 'store']);
+	Route::get('/wizard/{step}',[wizardController::class, 'create'])->name('wizard');
 });
 
 Route::get('/test', function(Request $request){
