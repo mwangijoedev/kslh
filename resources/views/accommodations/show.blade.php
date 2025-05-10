@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSLH Packages</title>
-   @vite('resources/css/app.css', 'resources/js/app.js')
-</head>
+<x-layout1>
 <body>
-    
-<div class="bg-white">
+<div class="bg-gray-950">
   <div class="pt-6">
     <nav aria-label="Breadcrumb">
       <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -233,7 +225,5 @@
   </div>
 </div>
 </body>
-</html>
-
-
+</x-layout1>
 

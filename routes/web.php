@@ -9,6 +9,7 @@ use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\wizardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Counter;
 
 
 Route::get('/', function () {
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/test', function(Request $request){
 	dd($request->session()->all());
 });
+Route::get('/package/{id}', Counter::class);
+Route::post('/counter', Counter::class);
 
 
 
