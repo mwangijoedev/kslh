@@ -24,17 +24,7 @@ class AccommodationController extends Controller
         return view('accommodations.show',['accommodation'=>$accommodation]);
     }
 
-    public function make(){
-        return view('accommodation.make');
-    }
-
     public function store(Request $request){
-       
-        //Gates
-       Gate::define('create', function($user){
-        return $user->role_admin == True;
-       });
-
        Gate::authorize('create', Auth::user());
 
         $attributes = $request->validate([

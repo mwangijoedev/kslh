@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/accommodation/{id}', [AccommodationController::class, 'show'])->name('accommodation.show');
 	Route::get('/create',function(){
 		return view('accommodations.create');
-	})->name('accommodation.create');
+	})->middleware('can:create')->name('accommodation.create');
 	Route::post('/accommodations/store',[AccommodationController::class, 'store'])->name('accommodation.store');
 	Route::post('book/{id}', [BookingController::class, 'store']);
 	Route::get('/wizard/{step}',[wizardController::class, 'create'])->name('wizard');

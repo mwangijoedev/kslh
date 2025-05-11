@@ -1,4 +1,7 @@
 <x-layout1>
+    <header>
+      <h2 class="text-gray-300 text-4xl pt-5 text-center font-audiowide bg-gray-950 ">DASHBOARD</h2>
+    </header>
     <div class="relative h-[1000px] w-full bg-gray-950 text-blue-300 ">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -18,13 +21,13 @@
                 </div>
             @endif
         @endforeach
-        <div class="absolute h-screen left-0 right-0  mt-20 flex flex-row justify-start no-wrap ">
+        <div class="absolute h-screen left-0 right-0  mt-5  flex flex-row justify-start no-wrap ">
             <!-- left Navigation   -->
             <div id="left-Navigation" class="hidden lg:block">
                 <nav 
                     class="grid grid-rows overflow-scroll gap-[2px] justify-center 
                             items-center
-                            py-5 h-screen no-scrollbar
+                            h-screen no-scrollbar
                             bg-gray-950 
                 ">
                     <div class="flex-start p-20 scale-[10px] rounded-full bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/photo-joe.jpeg') }}');"></div>
@@ -37,27 +40,29 @@
                         </form>
                     </div>
                     <div class=" pl-5 text-blue-300 text-sm text-start">
-                        <a href="#past-bookings" class="text-gray-600 text-xs">Past Bookings</a>
+                        <a href="#past-bookings" class="text-gray-600 text-xs hover:text-amber-700">Past Bookings</a>
                     </div>
                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="#available-packages" class="text-gray-600 text-xs">Available Packages</a>
+                        <a href="/profile" class="text-gray-600 text-xs hover:text-amber-700">Edit Profile</a>
                     </div>
                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="#loyalty-points" class="text-gray-600 text-xs">Loyalty Points</a>
+                        <a href="#loyalty-points" class="text-gray-600 text-xs hover:text-amber-700">Loyalty Points</a>
                     </div>
                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="#update-payment-info" class="text-gray-600 text-xs">Update Payment info</a>
+                        <a href="#update-payment-info" class="text-gray-600 text-xs hover:text-amber-700">Update Payment info</a>
                     </div>
+                    @can('create', Auth::user())
                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="#raise-ticket" class="text-gray-600 text-xs">Raise Ticket</a>
+                        <a href="/create" class="text-gray-600 text-xs hover:text-amber-700">Add Package</a>
                     </div>  
-              
+                    @endcan
                 </nav>
             </div>
             <!-- Recent Bookings Section   -->
-            <div class=" bg-gradient-to-br from-gray-900 to-blue-900 h-screen grow rounded-sm mx-5 my-5 overflow-scroll no-scrollbar px-5 ">
+            <div class=" bg-gradient-to-br from-gray-950 to-blue-900 h-screen grow rounded-sm mx-5 mb-5 overflow-scroll no-scrollbar px-5 ">
                 <div class=" py-6 ">
                     <p class="text-start text-gray-500 text-xs">Welcome {{$user->name}}</p>
+                    <p class="text-start text-gray-500 text-md"  x-data="pointsViewer({{$user->points}})" x-init="startCounter" >Loyalty Points: <span class="font-audiowide text-blue-900 text-2xl text-center"  x-text="points"></span></p>
                     <p class="text-center text-gray-300 text-xl">For you</p>
                   
                 </div>
@@ -73,7 +78,7 @@
                                     <p class="text-gray-400 text-xs text-start font-audiowide uppercase ">{{ $package->name }}</p>
                                 </div>
                                 <div class=" overflow-hidden hover:overflow-scroll no-scrollbar max-h-md ">
-                                    <p class="text-white text-sm">{{ $package->description }}</p>
+                                    <p class="text-gray-400 text-sm">{{ $package->description }}</p>
                                 </div>
                             </div>
                             <form action="/accommodation/{{ $package->id }}" method="GET">

@@ -17,7 +17,7 @@ class BookingController extends Controller
         }
         $user = Auth::user();
         $accommodation = Accommodation::find($id);
-        $points = $this->points($id);
+        $points = $this->points($id, $user);
         $attributes = [
             'user_name'=>$user->name,
             'user_id'=>$user->id,
@@ -27,8 +27,10 @@ class BookingController extends Controller
             'points_earned'=>$points,
             'status'=>'pending',
         ];
-        $existingBooking = Booking::where('user_id', $user->id)
-            ->where('package_id', $accommodation->id)
+        $user->points = $points;
+        $user->save();
+        $existingBooking = Booking::where('user_id', "==",$user->id)
+            ->where('package_id',"==", $accommodation->id)
             ->first();
         if ($existingBooking) {
             return redirect('/dashboard')
@@ -42,14 +44,18 @@ class BookingController extends Controller
                 ->with('error', 'This accommodation is already booked.');
         }
         Booking::create($attributes);
-        $request->session()->flash('success', 'Booking created successfully.');
+        $request->session()->flash('success', 'Booking created successfully.'.'You now have '.$points.' points');
 
         return redirect('/dashboard');      
             
     }
-    private function points($id){
+    private function points($id, $user ){
         $package = Accommodation::find($id);
-        $points = $package->price * 0.1;
-        return $points;
+        if($package->currency == 'USD'){
+            $points = $package->price * 130 * 0.1;
+        }else if($package->currency == 'KES'){ 
+            $points = $package->price * 0.1;
+        } 
+        return $points + $user->points;
     }
 }

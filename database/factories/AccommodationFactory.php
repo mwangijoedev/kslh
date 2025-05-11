@@ -28,7 +28,7 @@ class AccommodationFactory extends Factory
                         'Voi Business Package'
                     ]),
             'price'=>fake()->randomElement(['197', '599', '798','422','548']),
-            'currency'=>fake()->randomElement(['USD','EUR','KES']),
+            'currency'=>fake()->randomElement(['USD','KES']),
             'from'=>fake()->date(),       
             'to'=>fake()->date(), 
             'description'=>'Experience the perfect blend of luxury, relaxation, and adventure',

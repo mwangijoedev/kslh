@@ -51,7 +51,7 @@
       <div class="mt-4 lg:row-span-3 lg:mt-0">
         <h2 class="sr-only">Package information</h2>
         <!-- fetch package cost  -->
-        <p class="text-3xl tracking-tight text-gray-900">{{ $accommodation->price }}</p>
+        <p class="text-3xl tracking-tight text-gray-900">{{ $accommodation->currency." ".$accommodation->price }}</p>
 
         <!-- Stared Ratings -->
         <div class="mt-6">
@@ -78,7 +78,7 @@
             </div>
             <p class="sr-only">4 out of 5 stars</p>
             <!-- fetch number of reviews -->
-            <a href="/{$package->reviews}" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer ">117 reviews</a>
+            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer ">117 reviews</a>
           </div>
         </div>
 
@@ -190,7 +190,7 @@
           <h3 class="sr-only">Description</h3>
 
           <div class="space-y-6">
-            <p class="text-base text-gray-900">{{$accommodation->description}}! 🌴🐘🌊
+            <p class="text-base text-gray-600">{{$accommodation->description}}! 🌴🐘🌊
             Escape reality with our exclusive travel packages, 
             blending the thrill of a wildlife safari with the serenity of pristine beaches. 
             Stay in luxurious safari lodges, embark on breathtaking game drives,

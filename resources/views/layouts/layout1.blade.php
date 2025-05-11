@@ -53,7 +53,21 @@
             $(".loader").fadeOut(1000);
             $(".content").fadeIn(1000);
         });
-    </script>
+        function pointsViewer(targetPoints) {
+            return {
+                points: 0,
+                startCounter() {
+                    let interval = setInterval(() => {
+                        if (this.points < targetPoints) {
+                            this.points++;
+                        } else {
+                            clearInterval(interval);
+                        }
+                    }, 1); // 1 millisecond increment
+                }
+            }
+        }
+</script>
 </body>
 </html>
 
