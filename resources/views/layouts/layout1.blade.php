@@ -42,10 +42,9 @@
                             <a href="/dashboard" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">Dashboard</span></a>
                         </div>
                         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                            <a href="/profile" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">{{ Auth::user()->name; }}<span aria-hidden="true">&rarr;</span></a>
+                            <a href="/profile" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">{{ Auth::user()->name }}<span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
-                    
                     @endauth
                 </nav>
                 <main class="relative">

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Hotel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,27 +19,43 @@ class AccommodationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>fake()->randomElement([
-                        'Valentine Package',
-                        'Easter Package',
-                        'Christmas Package',
-                        'Mombasa Premium Package',
-                        'Night Life Package',
-                        'Ngulia 3 day Package',
-                        'Voi Business Package'
-                    ]),
-            'price'=>fake()->randomElement(['197', '599', '798','422','548']),
-            'currency'=>fake()->randomElement(['USD','KES']),
-            'from'=>fake()->date(),       
-            'to'=>fake()->date(), 
-            'description'=>'Experience the perfect blend of luxury, relaxation, and adventure',
-            'day1'=>fake()->randomElement([
-                        'Arrive, welcome drink, sunset beach massage, candlelit beachfront dinner.',
-                        'Arrive, champagne welcome, spa treatment, starlit fine dining.',
-                        'Sunset game drive, photography workshop, night sky photography.',
-                        'Arrive, bush trek, sundowner drinks, night safari.','Arrive, kid-friendly safari, bonfire storytelling.',
-                        'Arrive, sunset game drive, bush dinner under the stars.'
-                    ]),
+            //required fields
         ];
+    }
+
+    public function mombasa()
+    {
+        return $this->state([
+        'description'=> $this->faker->sentence(),
+        'category_tag'=> $this->faker->randomElement(['standard', 'executive']),
+        'hotel_id'=>Hotel::where('tag','mombasa')->first()->id,
+        'hotel_tag'=>'mombasa',
+        'executive_tag'=> $this->faker->randomElement(['Deluxe Single','Deluxe Double', 'Deluxe Family']),
+        'amenities'=> $this->faker->randomElement(['swimming pool', 'spa', 'gym']),
+        ]);
+    }
+
+    public function voi()
+    {
+        return $this->state([
+        'description'=> $this->faker->sentence(),
+        'category_tag'=> $this->faker->randomElement(['standard', 'executive']),
+        'hotel_id'=>Hotel::where('tag','voi')->first()->id,
+        'hotel_tag'=>'voi',
+        'executive_tag'=> $this->faker->randomElement(['Deluxe Single','Deluxe Double', 'Deluxe Family']),
+        'amenities'=> $this->faker->randomElement(['swimming pool', 'spa', 'gym']),
+        ]);
+    }
+
+     public function ngulia()
+    {
+        return $this->state([
+        'description'=> $this->faker->sentence(),
+        'category_tag'=> $this->faker->randomElement(['standard', 'executive']),
+        'hotel_id'=>Hotel::where('tag','ngulia')->first()->id,
+        'hotel_tag'=>'ngulia',
+        'executive_tag'=> $this->faker->randomElement(['Deluxe Single','Deluxe Double', 'Deluxe Family']),
+        'amenities'=> $this->faker->randomElement(['swimming pool', 'spa', 'gym']),
+        ]);
     }
 }

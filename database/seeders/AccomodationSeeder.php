@@ -14,6 +14,8 @@ class AccomodationSeeder extends Seeder
      */
     public function run(): void
     {
-        Accommodation::factory(30)->create();
+        Accommodation::factory(10)->mombasa()->create();
+        Accommodation::factory(10)->voi()->create();
+        Accommodation::factory(10)->ngulia()->create();
     }
 }

@@ -11,12 +11,17 @@ class Accommodation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'price',
-        'currency',
-        'from',
-        'to',
         'description',
-        'day1',
+        'category_tag',
+        'hotel_id',
+        'hotel_tag',
+        'executive-tag',
+        'amenities',
+
     ];
+
+
+    public function hotel(){
+        return $this->belongsTo(Hotel::class);
+    }
 }

@@ -1,8 +1,5 @@
 <?php
-
-use App\Models\Accommodation;
-use App\Models\User;
-use App\Models\Asset;
+use App\Models\Hotel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('accommodations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('price');
-            $table->string('currency');
-            $table->date('from');
-            $table->date('to');
-            $table->string('description'); 
-            $table->string('day1');  
+            $table->string('description');
+            $table->enum('category_tag', ['standard', 'executive']);
+            $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
+            $table->enum('hotel_tag', ['mombasa', 'voi', 'ngulia']);
+            $table->enum('executive_tag',['Deluxe Single','Deluxe Double', 'Deluxe Family'])->nullable();
+            $table->string('amenities');
             $table->timestamps();
         });  
     }

@@ -28,17 +28,16 @@ class AccommodationController extends Controller
        Gate::authorize('create', Auth::user());
 
         $attributes = $request->validate([
-            "name" => ['required'],
-            "price" => ['required'],
-            "currency" => ['required'],
-            "from" => ['required'],
-            "to" => ['required'],
-            "description" => ['required'],
-            "day1" => ['required'],
+        'description'=> 'required|string',
+        'category-tag'=> 'required|in:standard,executive',
+        'hotel-id'=> 'required|exists:hotels,id',
+        'hotel-tag'=> 'required|in:mombasa,voi,ngulia',
+        'executive-tag'=> 'nullable|in:Deluxe Single,Deluxe Double,Deluxe Family',
+        'amenities'=> 'required|string',
         ]);
 
         Accommodation::create($attributes);
 
-        return redirect('/')->with(['success'=>'Accommodation created successfully']);
+        return redirect('/dashboard')->with(['success'=>'Accommodation created successfully']);
     }
 }
