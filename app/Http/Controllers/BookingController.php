@@ -44,7 +44,8 @@ class BookingController extends Controller
                 ->with('error', 'This accommodation is already booked.');
         }
         Booking::create($attributes);
-        $request->session()->flash('success', 'Booking created successfully.'.'You now have '.$points.' points');
+        $request->session()->flash('success', $accommodation->name);
+        $request->session()->flash('success', 'Booking created successfully.'.'  You now have '.$points.' points');
 
         return redirect('/dashboard');      
             

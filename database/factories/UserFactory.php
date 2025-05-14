@@ -30,8 +30,23 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'role_admin' => fake()->boolean(),
             'points' => fake()->randomFloat(2, 0, 100),
+            'photo' =>'profile-photos/jedPbknn9Rct4YoH4REtr2S199EvryjNmbRMiDra.jpg',
             'remember_token' => Str::random(10),
         ];
+    }
+
+      public function admin()
+    {
+        return $this->state([
+            'name' => 'Joe Mwangi',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+            'role_admin' => 1,
+            'points' => 100,
+            'photo' =>'profile-photos/jedPbknn9Rct4YoH4REtr2S199EvryjNmbRMiDra.jpg',
+            'remember_token' => Str::random(10),
+        ]);
     }
 
     /**

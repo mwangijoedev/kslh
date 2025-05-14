@@ -27,7 +27,7 @@
       <h2 class="text-gray-300 my-2 text-4xl text-center font-audiowide ">CREATE A NEW PACKAGE</h2>
     </header>
 
-  <form method="POST" action="/accommodation/store" class="pl-40 glass mx-30 h-screen overflow-scroll no-scrollbar">
+  <form method="POST" action="/accommodation/store" class="pl-40 glass mx-30 h-screen overflow-scroll no-scrollbar" enctype="multipart/form-data" >
       @csrf
     <div class="space-y-12">
         <div class="border-b border-gray-900/10">
@@ -97,6 +97,23 @@
                   <x-input-error :messages="$errors->get('itenary')" class="mt-2" />
                 </div>
             </div>
+            {{-- Hotel Tag --}}
+      <div class="col-span-full">
+        <div class="sm:col-span-3">
+          <label for="tag" class="text-xs text-gray-300 font-bold">Hotel Tag</label>
+            <div class="mt-2">
+              <select name="tag" id="tag" class="w-1/2 rounded-md bg-amber-100 px-3 py-1.5 text-base 
+                      text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 
+                      focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                <option value="">-- Choose a Hotel-Tag --</option>
+                <option value="mombasa">Mombassa Beach Hotel</option>
+                <option value="voi">Voi Safari Lodge </option>
+                <option value="ngulia">Ngulia Safari Lodge</option>
+              </select>
+            </div>
+          <x-input-error :messages="$errors->get('location')" class="mt-2" />
+        </div>
+      </div>
     </div>
 
     <div class="mt-6 mb-20 w-1/2 flex items-center justify-end gap-x-6">

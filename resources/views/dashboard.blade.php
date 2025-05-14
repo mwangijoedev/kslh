@@ -12,10 +12,10 @@
         {{-- Flash messages --}}
         @foreach (['success', 'error', 'status'] as $msg)
             @if (session($msg))
-                <div class="pt-20 bg-gray-950"
+                <div class="pt-20 bg-gray-950 text-center font-semibold text-md uppercase text-sm text-blue-300 font-audiowide"
                 x-data="{ show: true }" 
                 x-show="show" 
-                x-init="setTimeout(() => show = false, 3000)"
+                x-init="setTimeout(() => show = false, 7000)"
                 >
                     {{ session($msg) }}
                 </div>
@@ -30,7 +30,14 @@
                             h-screen no-scrollbar
                             bg-gray-950 
                 ">
-                    <div class="flex-start p-20 scale-[10px] rounded-full bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/photo-joe.jpeg') }}');"></div>
+                    @if ($user->photo)
+                    <div class="flex-start p-20 scale-[10px] rounded-full bg-cover bg-center" style="background-image: url('{{ asset('storage/'.$user->photo) }}');"></div>
+                    @else
+                    <div class="flex-start p-20 scale-[10px] rounded-full bg-cover bg-center" style="background-image: url('{{ Vite::asset('resources/images/profile-pic.jpeg') }}');"></div>
+                    <div class=" pl-5 text-blue-300 text-sm text-start">
+                        <a href="/profile#photo" class="text-gray-600 text-xs hover:text-amber-700">Add Profile Picture</a>
+                    </div>
+                    @endif
                     <div class="pl-5 text-start">
                         <form action="/logout" method="post" >
                             @csrf
@@ -55,6 +62,9 @@
                     <div class="pl-5 text-blue-300 text-sm text-start">
                         <a href="/create" class="text-gray-600 text-xs hover:text-amber-700">Add Package</a>
                     </div>  
+                     <div class="pl-5 text-blue-300 text-sm text-start">
+                        <a href="/hotel/create" class="text-gray-600 text-xs hover:text-amber-700">Add Hotel</a>
+                    </div> 
                     @endcan
                 </nav>
             </div>

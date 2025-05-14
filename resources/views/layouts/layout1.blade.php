@@ -27,9 +27,9 @@
                         </button>
                     </div>
                     <div class="hidden lg:flex lg:gap-x-12 z-1 font-audiowide text-gray-400 text-xs">
-                        <a href="/accommodations" wire:navigate class="hover:text-amber-700 hover:scale-105 transition-all ease-in-out duration-200">ngulia</a>
-                        <a href="/accommodations" wire:navigate class="hover:text-amber-700 transition-all ease-in-out duration-200">voi</a>
-                        <a href="/accommodations" wire:navigate class="hover:text-amber-700 transition-all ease-in-out duration-200">mombasa</a>
+                        <a href="/hotel/show/ngulia" wire:navigate class="hover:text-amber-700 hover:scale-105 transition-all ease-in-out duration-200">ngulia</a>
+                        <a href="/hotel/show/voi" wire:navigate class="hover:text-amber-700 transition-all ease-in-out duration-200">voi</a>
+                        <a href="/hotel/show/mombasa" wire:navigate class="hover:text-amber-700 transition-all ease-in-out duration-200">mombasa</a>
                     </div>
                     @guest
                     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -37,9 +37,15 @@
                     </div>
                     @endguest
                     @auth
-                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="/dashboard" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">{{ Auth::user()->name; }}<span aria-hidden="true">&rarr;</span></a>
+                    <div class="hidden lg:flex lg:flex-1 lg:justify-end font-audiowide">
+                        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                            <a href="/dashboard" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">Dashboard</span></a>
+                        </div>
+                        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                            <a href="/profile" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500">{{ Auth::user()->name; }}<span aria-hidden="true">&rarr;</span></a>
+                        </div>
                     </div>
+                    
                     @endauth
                 </nav>
                 <main class="relative">
@@ -53,6 +59,8 @@
             $(".loader").fadeOut(1000);
             $(".content").fadeIn(1000);
         });
+
+        // optimize this function later
         function pointsViewer(targetPoints) {
             return {
                 points: 0,

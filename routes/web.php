@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\userloginController;
@@ -33,11 +34,15 @@ Route::middleware('auth')->group(function () {
 	Route::post('/accommodations/store',[AccommodationController::class, 'store'])->name('accommodation.store');
 	Route::post('book/{id}', [BookingController::class, 'store']);
 	Route::get('/wizard/{step}',[wizardController::class, 'create'])->name('wizard');
+	Route::get('/hotel/create', [HotelController::class, 'create'])->middleware('can:create')->name('hotel.create');
+	Route::post('/hotel/store', [HotelController::class, 'store'])->middleware('can:create')->name('hotel.store');
 });
 
-Route::get('/test', function(Request $request){
-	dd($request->session()->all());
-});
+//Hotel Routes
+Route::get('/hotel/all', [HotelController::class, 'index']);
+Route::get('/hotel/show/{tag}', [HotelController::class, 'show']);
+Route::get('/hotel/edit/', [HotelController::class, 'edit']);
+
 Route::get('/package/{id}', Counter::class);
 Route::post('/counter', Counter::class);
 

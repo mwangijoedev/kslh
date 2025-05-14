@@ -31,6 +31,12 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        //validate the photo
+        $request->validate([
+            'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+        ]);
+
+        $request->user()->photo = $request->file('photo')->store('profile-photos', 'public');
 
         $request->user()->save();
 
