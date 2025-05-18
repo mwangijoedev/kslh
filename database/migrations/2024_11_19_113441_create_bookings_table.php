@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Accommodation;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('user_name');
             $table->foreignIdFor(User::class);
             $table->string('accommodation_name');
-            $table->foreignIdFor(Accommodation::class);
+            $table->foreignIdFor(Room::class);
             $table->decimal('price', 8, 2);
             $table->decimal('points_earned', 8, 2);
             $table->string('status')->default('pending');

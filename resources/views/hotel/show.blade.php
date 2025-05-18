@@ -2,33 +2,33 @@
 <body>
 <div class="bg-gray-950">
   <div class="pt-6">
-    <nav aria-label="Breadcrumb">
-      <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <nav aria-label="Breadcrumb" class=" ml-10 text-xs text-center">
+      <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 lg:max-w-7xl ">
         <li>
           <!-- standard home -->
           <div class="flex items-center">
-            <a href="/home" class="mr-2 text-sm font-medium text-gray-900">Home</a>
+            <a href="/hotel/show/mombasa" class="mr-2 text-sm font-medium text-gray-500">Mombasa</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
           </div>
         </li>
         <li>
-          <!-- package category (ngulia, voi, mombasa) -->
           <div class="flex items-center">
-            <a href="#" class="mr-2 text-sm font-medium text-gray-900">Mombasa Beach Hotel</a>
+            <a href="/hotel/show/ngulia" class="mr-2 text-sm font-medium text-gray-500">Ngulia</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
           </div>
         </li>
-        <li>
-          <!-- package name ->current page -->
         <li class="text-sm">
-          <a href="/accommodation/{{ $hotel->id }}" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{{ $hotel->name }}</a>
+          <a href="/hotel/show/voi" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Voi</a>
         </li>
       </ol>
     </nav>
+     <header>
+      <h2 class="text-gray-300 my-2 text-lg sm:text-4xl text-center font-audiowide">{{$hotel->name}}</h2>
+    </header>
     <!-- Package Image gallery -> 4 images  -->
     <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
       <div style="background-image: url('{{ asset('storage/'.$hotel->image) }}')" class="bg-cover bg-center col-span-2" ></div>

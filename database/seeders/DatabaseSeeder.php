@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
       $this->call([
             AdminSeeder::class,
             HotelSeeder::class,
-            AccomodationSeeder::class,
+            RoomSeeder::class,
+            RestaurantSeeder::class,
         ]);
     }
 }

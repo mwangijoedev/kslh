@@ -59,12 +59,15 @@
                         <a href="#update-payment-info" class="text-gray-600 text-xs hover:text-amber-700">Update Payment info</a>
                     </div>
                     @can('create', Auth::user())
-                    <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="/create" class="text-gray-600 text-xs hover:text-amber-700">Add Package</a>
-                    </div>  
-                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="/hotel/create" class="text-gray-600 text-xs hover:text-amber-700">Add Hotel</a>
-                    </div> 
+                        <div class="pl-5 text-blue-300 text-sm text-start">
+                            <a href="/hotel/create" class="text-gray-600 text-xs hover:text-amber-700">Add Hotel</a>
+                        </div>  
+                        <div class="pl-5 text-blue-300 text-sm text-start">
+                            <a href="/room/create" class="text-gray-600 text-xs hover:text-amber-700">Add Accommodation Service</a>
+                        </div>
+                        <div class="pl-5 text-blue-300 text-sm text-start">
+                            <a href="/restaurant/create" class="text-gray-600 text-xs hover:text-amber-700">Add Dining Service </a>
+                        </div> 
                     @endcan
                 </nav>
             </div>
@@ -78,23 +81,23 @@
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 " >
-                    @foreach ($packages as $package)
+                    @foreach ($rooms as $room)
                         <div class=" flex flex-col max-w-sm bg-gray-800 rounded-sm overflow-hidden shadow-xl hover:scale-105 transition-all ease-in-out duration-200">
                             <div class=" px-10 py-15 rounded-t rounded-lg relative " > 
                                 <div class="bg-cover bg-center blur-xs absolute top-0 left-0 right-0 bottom-0" style="background-image: url('{{ Vite::asset('resources/images/safari.jpg') }}');" ></div>
                             </div>
                             <div class=" grid grid-cols-1 gap-2 p-5">
                                 <div>
-                                    <p class="text-gray-400 text-xs text-start font-audiowide uppercase ">{{ $package->name }}</p>
+                                    <p class="text-gray-400 text-xs text-start font-audiowide uppercase ">{{ $room->name }}</p>
                                 </div>
                                 <div class=" overflow-hidden hover:overflow-scroll no-scrollbar max-h-md ">
-                                    <p class="text-gray-400 text-sm">{{ $package->description }}</p>
+                                    <p class="text-gray-400 text-sm">{{ $room->description }}</p>
                                 </div>
                             </div>
-                            <form action="/accommodation/{{ $package->id }}" method="GET">
+                            <form action="/accommodation/{{ $room->id }}" method="GET">
                                 @csrf
                                 <div class="flex flex-row justify-between items-center px-5 py-2">
-                                    <p class="text-blue-600 text-sm">{{ $package->currency }} {{ $package->price }}</p>
+                                    <p class="text-blue-600 text-sm">{{ $room->hotel_tag }}</p>
                                     <button type="submit" class="px-4 bg-amber-900 
                                                                 text-white 
                                                                 hover:bg-amber-700

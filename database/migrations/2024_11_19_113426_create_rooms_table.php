@@ -11,15 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accommodations', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('description');
-            $table->enum('category_tag', ['standard', 'executive']);
+            $table->enum('service_tag', ['accommodation']);
+            $table->enum('category', ['standard', 'executive']);
+            $table->integer('capacity');
+            $table->string('image')->nullable();
+            $table->string('amenities');
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag', ['mombasa', 'voi', 'ngulia']);
-            $table->enum('executive_tag',['Deluxe Single','Deluxe Double', 'Deluxe Family'])->nullable();
-            $table->string('amenities');
+            $table->enum('executive_type',['Deluxe Single','Deluxe Double', 'Deluxe Family'])->nullable();
             $table->timestamps();
+            //include softdeletes
         });  
     }
 
@@ -28,7 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accommodations');       
+        Schema::dropIfExists('rooms');       
         Schema::dropIfExists('styles');       
     }
 };

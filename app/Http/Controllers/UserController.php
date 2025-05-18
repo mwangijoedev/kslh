@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
-use App\Models\Accommodation;
+use App\Models\Room;
 
 class UserController extends Controller
 {
@@ -32,9 +32,9 @@ class UserController extends Controller
     }
 
     public function dashboard(){
-        $packages = Accommodation::all();
+        $rooms = Room::all();
 
-        return view("dashboard", ['user'=>Auth::user(), 'packages'=>$packages]);
+        return view("dashboard", ['user'=>Auth::user(), 'rooms'=>$rooms]);
     }
 
 

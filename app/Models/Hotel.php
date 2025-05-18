@@ -18,4 +18,15 @@ class Hotel extends Model
         'location',
         'tag',
     ];
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
+    
 }

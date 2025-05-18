@@ -5,19 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Accommodation extends Model
+class Room extends Model
 {
-    /** @use HasFactory<\Database\Factories\AccommodationFactory> */
+    /** @use HasFactory<\Database\Factories\RoomFactory> */
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'description',
-        'category_tag',
+        'service_tag',
+        'category',
+        'image',
+        'capacity',
+        'amenities',
         'hotel_id',
         'hotel_tag',
-        'executive-tag',
-        'amenities',
-
+        'executive_type',
     ];
 
 
