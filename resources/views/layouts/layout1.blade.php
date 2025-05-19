@@ -5,7 +5,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 to-blue-900">
+<body class="bg-gradient-to-br from-gray-900 to-blue-900 select-none">
     <div class="loader bg-gradient-to-br from-gray-900 to-blue-900 flex flex-cols justify-center items-center">
         <p class="font-audiowide text-sm md:text-4xl animate-pulse text-amber-700 text-center">KSLH</p>
     </div>

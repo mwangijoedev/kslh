@@ -32,7 +32,7 @@
     <!-- Package Image gallery -> 4 images  -->
     <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
       <div style="background-image: url('{{ asset('storage/'.$hotel->image) }}')" class="bg-cover bg-center col-span-2" ></div>
-      <img src="{{ Vite::asset('resources/images/hut.jpg') }}" alt="Two each of gray, white, and black shirts laying flat." class="hidden size-full rounded-lg object-cover lg:block">
+      <img src="{{ asset('storage/'.$hotel->image) }}" alt="Two each of gray, white, and black shirts laying flat." class="hidden size-full rounded-lg object-cover lg:block">
     </div>
 
     <!-- Package info -->

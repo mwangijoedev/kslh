@@ -25,7 +25,7 @@ class RoomFactory extends Factory
     public function mombasa()
     {
         return $this->state([
-        'name'=> $this->faker->word(),
+        'name'=> 'Mombasa Rooms',
         'description'=> $this->faker->sentence(),
         'service_tag'=> $this->faker->randomElement(['accommodation']),
         'category'=> $this->faker->randomElement(['standard', 'executive']),
