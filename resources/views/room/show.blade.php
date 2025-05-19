@@ -7,28 +7,32 @@
                 </header>
                 <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                     <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $room->name }}</h1>
+                        <h1 class="text-2xl font-bold animate-pulse tracking-tight text-gray-900 sm:text-3xl">{{ $room->name }}</h1>
                     </div>
                     <div class="mt-4 lg:row-span-3 lg:mt-0">
-                        <div class="mx-auto max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-                            <div class="col-span-2 hidden lg:g grid lg:grid-cols-1 lg:gap-y-8">
-                                <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full rounded-lg object-cover">
+                        <div class=" max-w-2xl sm:px-2 ">
+                            <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                                <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full grow rounded-lg object-cover">
+                            </div>
+                            <div class="mt-5 text-amber-800 text-center">
+                              <a href="/room/show/{{ $next->id }}" class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
+                                <span aria-hidden="true">&rarr;</span>
+                              </a>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
                         <div>
                             <h3 class="sr-only">Description</h3>
                             <div class="space-y-6">
-                                <div class="text-base text-gray-300">{{$room->description}}! 🌴🐘🌊 
-                                    <br>
-                                    Escape reality with our exclusive travel packages, 
-                                    blending the thrill of a wildlife safari with the serenity of pristine beaches. 
-                                    Stay in luxurious safari lodges, embark on breathtaking game drives,
-                                    and soak in the rich Swahili culture. 
-                                    Whether you crave adventure or relaxation, this is your perfect getaway. 
-                                    Book now and let the magic begin! ✨🚀
+                                <div class="text-base text-gray-300">✨🚀{{$room->description}}! 🌴🐘🌊 
                                 </div>
+                            </div>
+                            <div class="mt-4 ml-10">
+                              @foreach ($amenities as $amenity)
+                                <p class="text-sm text-gray-800">✔{{ $amenity }}</p>
+                              @endforeach
                             </div>
                         </div>
                         <form method="POST" action="/book/{{ $room->id }}" class="hidden sm:block mt-2 mb-10 sm:flex sm:justify-end">
@@ -81,9 +85,9 @@
                             </div>
                             <fieldset aria-label="Package Inclusions" class="mt-4">
                                 <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                                    @foreach ($amenities as $amenity)
+                                    @foreach ($quick_amenities as $quick_amenity)
                                         <label class="animate-pulse hover relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1 sm:py-6">
-                                            <span class="text-gray-600 text-xs text-center">✔ {{ $amenity }}</span>
+                                            <span class="text-gray-600 text-xs text-center">✔ {{ $quick_amenity }}</span>
                                             <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                         </label>
                                     @endforeach
@@ -91,6 +95,7 @@
                             </fieldset>
                         </div>
                         <button type="submit" role="button" tabindex="0" class="mt-10 animate-pulse hover:animate-none transition-all ease-in-out duration-300 cursor-pointer flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to Package cart</button>
+                        
                     </form>
                 </div>
                 <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">

@@ -107,12 +107,20 @@
                 </div>
               </div>
             </div>
-              {{-- Amenities --}}
+            {{-- Amenities --}}
             <div class="col-span-full">
               <div class="w-full mt-2 grid grid-cols-1">
                 <label for="amenities" class="text-xs text-gray-300  mb-2">Amenities (comma separated)</label>
                   <textarea name="amenities" id="amenities" rows="2" autocomplete="amenities" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
                   <x-input-error :messages="$errors->get('amenities')" class="mt-2" />
+              </div>
+            </div>
+            {{-- Quick Amenities --}}
+            <div class="col-span-full">
+              <div class="w-full mt-2 grid grid-cols-1">
+                <label for="quick_amenities" class="text-xs text-gray-300  mb-2">Quick Amenities (comma separated)</label>
+                  <textarea name="quick_amenities" id="quick_amenities" rows="2" autocomplete="quick_amenities" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                  <x-input-error :messages="$errors->get('quick_amenities')" class="mt-2" />
               </div>
             </div>
         </div>

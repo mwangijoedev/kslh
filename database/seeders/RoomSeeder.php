@@ -13,7 +13,11 @@ class RoomSeeder extends Seeder
      */
     public function run(): void
     {
-        Room::factory(1)->mombasa()->create();
+        Room::factory(1)->mombasaGardenFacing()->create();
+        Room::factory(1)->mombasaPoolFacing()->create();
+        Room::factory(1)->mombasaRestaurantFacing()->create();
+        Room::factory(1)->mombasaSeaFacing()->create();
+        Room::factory(1)->mombasaSuites()->create();
         Room::factory(1)->voi()->create();
         Room::factory(1)->ngulia()->create();
     }

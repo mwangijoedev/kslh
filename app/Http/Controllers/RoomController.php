@@ -7,6 +7,7 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use App\Models\Hotel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class RoomController extends Controller
 {
@@ -17,9 +18,16 @@ class RoomController extends Controller
     public function show($id){
 
         $room =Room::findOrFail($id);
-        $amenities = $room->highlight= explode(',', $room->amenities);
+        try {
+            $next = Room::findOrFail($id + 1);
+        } catch (ModelNotFoundException $e) {
+            $next = Room::findOrFail(1);
+        }
 
-        return view('room.show',['room'=>$room, 'amenities'=>$amenities]);
+        $amenities = explode(':', $room->amenities);
+        $quick_amenities = explode(',', $room->quick_amenities);
+
+        return view('room.show',['room'=>$room, 'amenities'=>$amenities, 'quick_amenities'=>$quick_amenities, 'next'=>$next]);
     }
 
     public function store(Request $request){
@@ -33,6 +41,7 @@ class RoomController extends Controller
             'image3'=> ['required', File::image()->max(1024)],
             'capacity'=> 'required|integer|min:1|max:10',
             'amenities'=> 'required|string',
+            'quick_amenities'=> 'required|string',
             'hotel_tag'=> 'required|in:mombasa,voi,ngulia',
             'executive_type'=> 'nullable|in:Deluxe Single,Deluxe Double,Deluxe Family',
         ]);

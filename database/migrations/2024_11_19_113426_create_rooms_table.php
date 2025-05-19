@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('image2');
             $table->string('image3');
             $table->string('amenities');
+            $table->string('quick_amenities');
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag', ['mombasa', 'voi', 'ngulia']);
             $table->enum('executive_type',['Deluxe Single','Deluxe Double', 'Deluxe Family']);
