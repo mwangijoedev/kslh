@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             RoomSeeder::class,
             RestaurantSeeder::class,
             BarSeeder::class,
+            HallSeeder::class,
+            EventSeeder::class,
         ]);
     }
 }

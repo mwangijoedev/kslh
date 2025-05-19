@@ -31,7 +31,8 @@ class HotelFactory extends Factory
                 memories in one of Kenya\'s most captivating destinations',
             'highlights' => 'Swahili cuisines,Mombasa Day tours,SPA treatment',
             'location' => 'Coastal shores of Mombasa',
-            'image' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'tag'=>'mombasa',
         ]);
     }
@@ -45,7 +46,8 @@ class HotelFactory extends Factory
                     The panoramic outlook is spectacular and offers a serene view of the park.',
             'highlights' => 'Amazing-Caves,Dinner at Mudanda Rock,Wild Animals Viewing,Mzima Springs',
             'location' => 'Tsavo east national park',
-            'image' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'tag'=>'voi',
         ]);
     }
@@ -59,7 +61,8 @@ class HotelFactory extends Factory
                     The serenity of the lodge makes it a perfect getaway with a clear view of mount kilimanjaro.',
             'highlights' => 'Swimming pool,Japanese Massage,Guided nature walks,Hill climbing,Binocular overlooking the Ngulia Rhino Sanctuary',
             'location' => 'Tsavo West National Park',
-            'image' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'tag'=>'ngulia',
         ]);
     }

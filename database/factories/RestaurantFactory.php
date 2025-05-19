@@ -31,7 +31,9 @@ class RestaurantFactory extends Factory
             'hotel_id'=>Hotel::where('tag','mombasa')->first()->id,
             'hotel_tag'=>'mombasa',
             'capacity'=> $this->faker->numberBetween(50, 200),
-            'image'=> $this->faker->imageUrl(),
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image3' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'operating_hours'=> $this->faker->time() . ' - ' . $this->faker->time(),
         ]);
     }
@@ -45,7 +47,9 @@ class RestaurantFactory extends Factory
             'hotel_id'=>Hotel::where('tag','ngulia')->first()->id,
             'hotel_tag'=>'ngulia',
             'capacity'=> $this->faker->numberBetween(50, 200),
-            'image'=> $this->faker->imageUrl(),
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image3' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'operating_hours'=> $this->faker->time() . ' - ' . $this->faker->time(),
         ]);
     }
@@ -59,7 +63,9 @@ class RestaurantFactory extends Factory
             'hotel_id'=>Hotel::where('tag','voi')->first()->id,
             'hotel_tag'=>'voi',
             'capacity'=> $this->faker->numberBetween(50, 200),
-            'image'=> $this->faker->imageUrl(),
+            'image1' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image2' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
+            'image3' => 'images/vq2WLiy8twZCqLH5QmgzaAKNNKHaVR1uMoOZ7jeu.png',
             'operating_hours'=> $this->faker->time() . ' - ' . $this->faker->time(),
         ]);
     }

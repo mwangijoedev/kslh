@@ -26,16 +26,18 @@ class HotelController extends Controller
         $attributes = $request->validate([
             'name'=>'required',
             'description'=>'required',
+            'tag'=>'required|unique:hotels,tag',
             'highlights'=>'required',
+            'image1' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            'image2' => 'required|image|mimes:jpg,png,jpeg|max:2048',
             'location'=>'required',
         ]);
-        $image = $request->validate([
-        'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
+     
 
-        $image = $request->file('image')->store('hotel-photos', 'public');
+        $attributes['image1'] = $request->file('image1')->store('hotel-photos', 'public');
+        $attributes['image2'] = $request->file('image1')->store('hotel-photos', 'public');
 
-        Hotel::create($attributes + ['image' => $image,]);
+        Hotel::create($attributes);
 
         return redirect('dashboard')->with('success', 'Hotel created successfully.');
     }

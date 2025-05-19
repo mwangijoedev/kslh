@@ -12,7 +12,31 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Room</a>
+            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Rooms</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/event/create" class="mr-2 text-sm font-medium text-gray-500">Event</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/hall/create" class="mr-2 text-sm font-medium text-gray-500">Conference Hall</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/bar/create" class="mr-2 text-sm font-medium text-gray-500">Bar</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -122,6 +146,39 @@
                 </div>
             </div>
 
+            {{-- Image1 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image1" class="text-sm text-gray-300 ">Upload Restaurant Image</label>
+                            <div class="mt-2">
+                            <input type="file" name="image1" id="image1" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image1')" class="mt-2" />
+                    </div>
+                </div>
+                {{-- Image2 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image2" class="text-sm text-gray-300 ">Upload Restaurant Image</label>
+                            <div class="mt-2">
+                            <input type="file" name="image2" id="image2" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image2')" class="mt-2" />
+                    </div>
+                </div>
+                {{-- Image3 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image" class="text-sm text-gray-300 ">Upload Restaurant Image</label>
+                            <div class="mt-2">
+                            <input type="file" name="image3" id="image3" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image3')" class="mt-2" />
+                    </div>
+                </div>
       </div>
     </div>
 <!-- submit button  -->

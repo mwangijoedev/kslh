@@ -13,7 +13,9 @@ class Bar extends Model
     protected $fillable = [
         'name',
         'description',
-        'image',
+        'image1',
+        'image2',
+        'image3',
         'service_tag',
         'hotel_id',
         'hotel_tag', 

@@ -28,18 +28,19 @@ class RoomController extends Controller
             'description'=> 'required|string',
             'service_tag'=> 'required|in:accommodation',
             'category'=> 'required|in:standard,executive',
-            'image'=> ['nullable', File::image()->max(1024)],
+            'image1'=> ['required', File::image()->max(1024)],
+            'image2'=> ['required', File::image()->max(1024)],
+            'image3'=> ['required', File::image()->max(1024)],
             'capacity'=> 'required|integer|min:1|max:10',
             'amenities'=> 'required|string',
             'hotel_tag'=> 'required|in:mombasa,voi,ngulia',
             'executive_type'=> 'nullable|in:Deluxe Single,Deluxe Double,Deluxe Family',
         ]);
 
-        if ($request->hasFile('image')) {
-            $attributes['image'] = $request->file('image')->store('room-photos', 'public');
-        } else {
-            $attributes['image'] = 'default.jpg';
-                }
+        $attributes['image1'] = $request->file('image')->store('room-photos', 'public');
+        $attributes['image2'] = $request->file('image')->store('room-photos', 'public');
+        $attributes['image3'] = $request->file('image')->store('room-photos', 'public');
+      
 
         $attributes['hotel_id'] = Hotel::where('tag', $attributes['hotel_tag'])->first()->id;
         Room::create($attributes);

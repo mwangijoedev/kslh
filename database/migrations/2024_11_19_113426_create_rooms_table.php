@@ -18,11 +18,13 @@ return new class extends Migration
             $table->enum('service_tag', ['accommodation']);
             $table->enum('category', ['standard', 'executive']);
             $table->integer('capacity');
-            $table->string('image')->nullable();
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
             $table->string('amenities');
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag', ['mombasa', 'voi', 'ngulia']);
-            $table->enum('executive_type',['Deluxe Single','Deluxe Double', 'Deluxe Family'])->nullable();
+            $table->enum('executive_type',['Deluxe Single','Deluxe Double', 'Deluxe Family']);
             $table->timestamps();
             //include softdeletes
         });  

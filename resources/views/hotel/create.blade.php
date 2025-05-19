@@ -4,7 +4,7 @@
         <li>
           <!-- standard home -->
           <div class="flex items-center">
-            <a href="/hotel/create" class="mr-2 text-sm font-medium text-gray-500">Hotel</a>
+            <a href="/hotel/create" class="mr-2 text-sm font-medium text-gray-500">Event</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -18,15 +18,39 @@
             </svg>
           </div>
         </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Restaurant</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Conference Hall</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Bar</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
         <li class="text-sm">
-          <a href="/restaurant/create" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Restaurant</a>
+          <a href="/restaurant/create" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Hotel</a>
         </li>
       </ol>
     </nav>
     <header>
       <h2 class="text-gray-300 my-2 text-4xl text-center font-audiowide ">CREATE A HOTEL</h2>
     </header>
-  <form method="POST" action="/accommodation/store" class="md:mx-30 md:mb-20 p-5 glass h-screen overflow-scroll no-scrollbar" enctype="multipart/form-data" >
+  <form method="POST" action="/hotel/store" class="md:mx-30 md:mb-20 p-5 glass h-screen overflow-scroll no-scrollbar" enctype="multipart/form-data" >
       @csrf
     <!-- Inputs  -->
   <!--Closure 1 -->   
@@ -48,22 +72,28 @@
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
           </div>
-            {{-- Image --}}
-            <div class="col-span-full">
-                <div class="w-full mt-2 grid grid-cols-1">
-                    <label for="image" class="text-sm text-gray-300 ">Upload Hotel Image</label>
-                        <div class="mt-2">
-                        <input 
-                            type="file" 
-                            name="image" 
-                            id="image" 
-                            accept="image/*"
-                            class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                        />
-                        </div>
-                    <x-input-error :messages="$errors->get('image')" class="mt-2" />
+            {{-- Image1 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image1" class="text-sm text-gray-300 ">Upload Event Image (left)</label>
+                            <div class="mt-2">
+                            <input type="file" name="image1" id="image1" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image1')" class="mt-2" />
+                    </div>
                 </div>
-            </div>
+                {{-- Image2 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image2" class="text-sm text-gray-300 ">Upload Event Image (Middle)</label>
+                            <div class="mt-2">
+                            <input type="file" name="image2" id="image2" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image2')" class="mt-2" />
+                    </div>
+                </div>
       </div>
   <!-- Closure 2 -->
       <div class="md:col-span-1">
@@ -89,15 +119,15 @@
           {{-- Hotel Tag --}}
           <div class="col-span-full">
               <div class=" w-full mt-2 grid grid-cols-1">
-                <label for="hotel_tag" class="text-xs text-gray-300  mb-2">Hotel Tag</label>
-                <select name="hotel_tag" id="tag" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
+                <label for="tag" class="text-xs text-gray-300  mb-2">Hotel Tag</label>
+                <select name="tag" id="tag" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
                   <option value="">-- Choose a Hotel-Tag --</option>
                   <option value="mombasa">Mombassa Beach Hotel</option>
                   <option value="voi">Voi Safari Lodge </option>
                   <option value="ngulia">Ngulia Safari Lodge</option>
                 </select>
               </div>
-            <x-input-error :messages="$errors->get('location')" class="mt-2" />
+            <x-input-error :messages="$errors->get('tag')" class="mt-2" />
           </div>
       </div>
     </div>

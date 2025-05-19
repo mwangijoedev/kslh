@@ -2,18 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\Bar;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Hall;
 
-class BarSeeder extends Seeder
+class HallSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-            Bar::factory(1)->mombasa()->create();
-            Bar::factory(1)->ngulia()->create();
+            Hall::factory(1)->mombasa()->create();
+            Hall::factory(1)->ngulia()->create();
+            Hall::factory(1)->voi()->create();
     }
 }

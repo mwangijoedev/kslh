@@ -21,7 +21,6 @@ class RestaurantController extends Controller
     }
 
     public function store(Request $request){
-
         $attributes = $request->validate([
             'name'=> 'required|string|max:255',
             'location'=> 'required|string|max:255',
@@ -29,11 +28,15 @@ class RestaurantController extends Controller
             'service_tag'=> 'required|in:dining',
             'hotel_tag'=> 'required|exists:hotels,tag',
             'capacity'=> 'required|integer|min:1',
-            'image'=> ['nullable', File::image()->max(1024)],
-            'operating_hours'=> 'nullable|string|max:255',
+            'image1'=> ['required', File::image()->max(1024)],
+            'image2'=> ['required', File::image()->max(1024)],
+            'image3'=> ['required', File::image()->max(1024)],
+            'operating_hours'=> 'required|string|max:255',
         ]);
 
-        $attributes['image'] = $request->file('image')->store('restaurant-photos', 'public');
+        $attributes['image1'] = $request->file('image')->store('restaurant-photos', 'public');
+        $attributes['image2'] = $request->file('image')->store('restaurant-photos', 'public');
+        $attributes['image3'] = $request->file('image')->store('restaurant-photos', 'public');
         $attributes['hotel_id'] = Hotel::where('tag', $attributes['hotel_tag'])->first()->id;
     
         Restaurant::create($attributes);

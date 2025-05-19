@@ -18,7 +18,9 @@ class Restaurant extends Model
         'hotel_id',
         'hotel_tag',
         'capacity',
-        'image', 
+        'image1',
+        'image2',
+        'image3', 
         'operating_hours',
     ];
     

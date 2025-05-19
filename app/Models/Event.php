@@ -5,28 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Room extends Model
+class Event extends Model
 {
-    /** @use HasFactory<\Database\Factories\RoomFactory> */
+    /** @use HasFactory<\Database\Factories\EventFactory> */
     use HasFactory;
 
     protected $fillable = [
         'name',
         'description',
+        'type',
         'service_tag',
-        'category',
+        'hotel_id',
+        'hotel_tag',
         'image1',
         'image2',
         'image3',
-        'capacity',
-        'amenities',
-        'hotel_id',
-        'hotel_tag',
-        'executive_type',
     ];
-
-
-    public function hotel(){
+    public function hotel()
+    {
         return $this->belongsTo(Hotel::class);
     }
 }

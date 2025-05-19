@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Room;
+use App\Models\Restaurant;
+use App\Models\Bar;
+use App\Models\Hall;
+use App\Models\Event;
+
 
 class Hotel extends Model
 {
@@ -13,7 +19,8 @@ class Hotel extends Model
     protected $fillable = [
         'name',
         'description',
-        'image',
+        'image1',
+        'image2',
         'higlights',
         'location',
         'tag',
@@ -32,6 +39,16 @@ class Hotel extends Model
     public function bars()
     {
         return $this->hasMany(Bar::class);
+    }
+
+    public function halls()
+    {
+        return $this->hasMany(Hall::class);
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
     }
     
 }

@@ -1,5 +1,5 @@
 <x-layout1>
-     <nav aria-label="Breadcrumb" class="text-xs text-center">
+      <nav aria-label="Breadcrumb" class="text-xs text-center">
       <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 lg:max-w-7xl ">
         <li>
           <!-- standard home -->
@@ -12,14 +12,38 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/room/create" class="mr-2 text-sm font-medium text-gray-500">Rooms</a>
+            <a href="/event/create" class="mr-2 text-sm font-medium text-gray-500">Event</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/restaurant/create" class="mr-2 text-sm font-medium text-gray-500">Restaurant</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/hall/create" class="mr-2 text-sm font-medium text-gray-500">Conference Hall</a>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <a href="/bar/create" class="mr-2 text-sm font-medium text-gray-500">Bar</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
           </div>
         </li>
         <li class="text-sm">
-          <a href="/restaurant/create" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Restaurant</a>
+          <a href="/room/create" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Room</a>
         </li>
       </ol>
     </nav>
@@ -31,6 +55,7 @@
       @csrf
     <!-- Inputs  -->
     <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+   <!-- Closure 1    -->
       <div class=" md:col-span-1">
           {{-- Name --}}
           <div class="col-span-full">
@@ -48,29 +73,29 @@
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
           </div>
-          {{-- service tag  --}}
-          <div class="col-span-full">
-            <div class="w-full mt-2 grid grid-cols-1">
-              <label for="service_tag" class="text-xs text-gray-300 mb-2 ">Service Tag</label>
-              <select id="service_tag" name="service_tag" autocomplete="service_tag" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
-                <option value="accommodation">Accommodation</option>
-              </select>
+          {{--Service Tag --}}
+            <div class="col-span-full">
+                <div class=" w-full mt-2 grid grid-cols-1">
+                    <label for="service_tag" class="text-xs text-gray-300  mb-2">Service Type</label>
+                    <select name="service_tag" id="service_tag" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
+                    <option value="">--Select Service Type--</option>
+                    <option value="accommodation">Event Service</option>
+                    </select>
+                </div>
                 <x-input-error :messages="$errors->get('service_tag')" class="mt-2" />
             </div>
-          </div>  
           {{-- Category  --}}
           <div class="col-span-full">
             <div class="w-full mt-2 grid grid-cols-1">
               <label for="category" class="text-xs text-gray-300 mb-2 ">Category</label>
               <select id="category" name="category" autocomplete="category" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
+                <option value="">-Select Category-</option>
                 <option value="standard">Standard</option>
                 <option value="executive">Executive</option>
               </select>
                 <x-input-error :messages="$errors->get('category')" class="mt-2" />
             </div>
           </div>
-      </div>
-      <div class="md:col-span-1">
           <!-- capacity  -->
           <div class="col-span-full mt-2">
             <div class="w-full grid grid-cols-1">
@@ -90,6 +115,9 @@
                 <x-input-error :messages="$errors->get('amenities')" class="mt-2" />
             </div>
           </div>
+      </div>
+  <!-- Closure 2  -->
+      <div class="md:col-span-1">
           {{-- Hotel Tag --}}
           <div class="col-span-full">
               <div class=" w-full mt-2 grid grid-cols-1">
@@ -108,7 +136,7 @@
             <div class="w-full mt-2 grid grid-cols-1">
               <label for="executive_type" class="text-xs text-gray-300  mb-2 ">Executive Type</label>
               <select id="executive_type" name="executive_type" autocomplete="executive_type" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
-                <option value="N/A">--If Room is Executive--</option>
+                <option value="">--If Room is Executive--</option>
                 <option value="Deluxe Single">Deluxe Single</option>
                 <option value="Deluxe Double">Deluxe Double</option>
                 <option value="Deluxe Family">Deluxe Family</option>
@@ -116,27 +144,43 @@
                 <x-input-error :messages="$errors->get('executive_type')" class="mt-2" />
             </div>
           </div>
-          {{-- Image --}}
-            <div class="col-span-full">
-                <div class="w-full mt-2 grid grid-cols-1">
-                    <label for="image" class="text-sm text-gray-300 ">Upload Hotel Image</label>
-                        <div class="mt-2">
-                        <input 
-                            type="file" 
-                            name="image" 
-                            id="image" 
-                            accept="image/*"
-                            class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                        />
-                        </div>
-                    <x-input-error :messages="$errors->get('image')" class="mt-2" />
+           {{-- Image1 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image1" class="text-sm text-gray-300 ">Upload Event Image (left)</label>
+                            <div class="mt-2">
+                            <input type="file" name="image1" id="image1" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image1')" class="mt-2" />
+                    </div>
                 </div>
-            </div>
-
+                {{-- Image2 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image2" class="text-sm text-gray-300 ">Upload Event Image (Middle)</label>
+                            <div class="mt-2">
+                            <input type="file" name="image2" id="image2" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image2')" class="mt-2" />
+                    </div>
+                </div>
+                   {{-- Image3 --}}
+                <div class="col-span-full">
+                    <div class="w-full mt-2 grid grid-cols-1">
+                        <label for="image" class="text-sm text-gray-300 ">Upload Event Image (Right)</label>
+                            <div class="mt-2">
+                            <input type="file" name="image3" id="image3" accept="image/*"
+                                class="block rounded-md bg-gray-100/20 grow px-4 py-1.5 text-base text-gray-black outline-1 -outline-offset-1 outline-gray-300 file:mr-4 file:py-1.5 file:px-4 file:rounded-md file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            </div>
+                        <x-input-error :messages="$errors->get('image3')" class="mt-2" />
+                    </div>
+                </div>
       </div>
     </div>
     <!-- submit button  -->
-    <div class=" absolute right-0 sm:grid sm:grid-cols-2 sm:gap-4 mt-1o w-1/2 pl-10 flex flex-col justify-between items-center space-y-4 ">
+    <div class=" absolute right-0 sm:grid sm:grid-cols-2 sm:gap-4 mt-1 w-1/2 pl-10 flex flex-col justify-between items-center space-y-4 ">
       <div class="col-span-1">
         <button type="submit" 
           class="px-4 bg-blue-950 text-white font-semibold hover:bg-white/50 hover:text-black

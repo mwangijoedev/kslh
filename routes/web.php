@@ -8,6 +8,8 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\wizardController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HallController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 
@@ -48,6 +50,17 @@ Route::middleware('auth')->group(function () {
 	Route::post('/bar/store', [BarController::class, 'store'])->middleware('can:create')->name('bar.store');
 	Route::get('/bar/edit/{id}', [BarController::class, 'edit'])->middleware('can:create')->name('bar.edit');
 
+	//Event creation Routes
+	Route::get('/event/create', [EventController::class, 'create'])->middleware('can:create')->name('event.create');
+	Route::post('/event/store', [EventController::class, 'store'])->middleware('can:create')->name('event.store');
+	Route::get('/event/edit/{id}', [EventController::class, 'edit'])->middleware('can:create')->name('event.edit');
+
+	//Hall creation Routes
+	Route::get('/hall/create', [HallController::class, 'create'])->middleware('can:create')->name('hall.create');
+	Route::post('/hall/store', [HallController::class, 'store'])->middleware('can:create')->name('hall.store');
+	Route::get('/hall/edit/{id}', [HallController::class, 'edit'])->middleware('can:create')->name('hall.edit');
+
+
 });
 
 //Hotel Routes
@@ -65,6 +78,14 @@ Route::get('/restaurant/show/{tag}', [RestaurantController::class, 'show']);
 //Bar Routes / Bar-service routes
 Route::get('/bar/all', [BarController::class, 'index']);
 Route::get('/bar/show/{tag}', [BarController::class, 'show']);
+
+//Event Routes / Event-service routes
+Route::get('/event/all', [EventController::class, 'index']);
+Route::get('/event/show/{tag}', [EventController::class, 'show']);
+
+//Hall Routes / Conferencing-service routes
+Route::get('/hall/all', [HallController::class, 'index']);
+Route::get('/hall/show/{tag}', [HallController::class, 'show']);
 
 Route::get('/package/{id}', Counter::class);
 Route::post('/counter', Counter::class);

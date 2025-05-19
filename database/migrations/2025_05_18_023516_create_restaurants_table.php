@@ -20,9 +20,11 @@ return new class extends Migration
             $table->string('service_tag');
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->string('hotel_tag');
-            $table->integer('capacity')->nullable();
-            $table->string('image')->nullable();
-            $table->string('operating_hours')->nullable();
+            $table->integer('capacity');
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('operating_hours');
             $table->timestamps();
 
         });
