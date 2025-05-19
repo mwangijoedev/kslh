@@ -28,5 +28,10 @@ class Hotel extends Model
     {
         return $this->hasMany(Restaurant::class);
     }
+
+    public function bars()
+    {
+        return $this->hasMany(Bar::class);
+    }
     
 }

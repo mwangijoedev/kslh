@@ -15,6 +15,11 @@ class RestaurantController extends Controller
         return view('restaurant.create');
     }
 
+     public function show($id){
+        $restaurant = Restaurant::findOrFail($id);
+        return view('restaurant.show',['restaurant'=>$restaurant]);
+    }
+
     public function store(Request $request){
 
         $attributes = $request->validate([
@@ -28,7 +33,7 @@ class RestaurantController extends Controller
             'operating_hours'=> 'nullable|string|max:255',
         ]);
 
-
+        $attributes['image'] = $request->file('image')->store('restaurant-photos', 'public');
         $attributes['hotel_id'] = Hotel::where('tag', $attributes['hotel_tag'])->first()->id;
     
         Restaurant::create($attributes);

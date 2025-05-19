@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\BarController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HotelController;
@@ -42,6 +43,11 @@ Route::middleware('auth')->group(function () {
 	Route::post('/restaurant/store', [RestaurantController::class, 'store'])->middleware('can:create')->name('restaurant.store');
 	Route::get('/restaurant/edit/{id}', [RestaurantController::class, 'edit'])->middleware('can:create')->name('restaurant.edit');
 
+	//Bar creation Routes
+	Route::get('/bar/create', [BarController::class, 'create'])->middleware('can:create')->name('bar.create');
+	Route::post('/bar/store', [BarController::class, 'store'])->middleware('can:create')->name('bar.store');
+	Route::get('/bar/edit/{id}', [BarController::class, 'edit'])->middleware('can:create')->name('bar.edit');
+
 });
 
 //Hotel Routes
@@ -49,15 +55,22 @@ Route::get('/hotel/all', [HotelController::class, 'index']);
 Route::get('/hotel/show/{tag}', [HotelController::class, 'show']);
 
 //Room Routes / Accommodation-service routes
-Route::get('/room/all', [HotelController::class, 'index']);
-Route::get('/room/show/{tag}', [HotelController::class, 'show']);
+Route::get('/room/all', [RoomController::class, 'index']);
+Route::get('/room/show/{tag}', [RoomController::class, 'show']);
 
 //Restaurant Routes / Dining-service routes
-Route::get('/restaurant/all', [HotelController::class, 'index']);
-Route::get('/restaurant/show/{tag}', [HotelController::class, 'show']);
+Route::get('/restaurant/all', [RestaurantController::class, 'index']);
+Route::get('/restaurant/show/{tag}', [RestaurantController::class, 'show']);
+
+//Bar Routes / Bar-service routes
+Route::get('/bar/all', [BarController::class, 'index']);
+Route::get('/bar/show/{tag}', [BarController::class, 'show']);
 
 Route::get('/package/{id}', Counter::class);
 Route::post('/counter', Counter::class);
+
+
+
 
 
 

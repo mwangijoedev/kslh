@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             HotelSeeder::class,
             RoomSeeder::class,
             RestaurantSeeder::class,
+            BarSeeder::class,
         ]);
     }
 }

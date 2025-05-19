@@ -33,7 +33,7 @@ class HotelController extends Controller
         'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $image = $request->file('image')->store('images', 'public');
+        $image = $request->file('image')->store('hotel-photos', 'public');
 
         Hotel::create($attributes + ['image' => $image,]);
 
