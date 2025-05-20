@@ -101,9 +101,25 @@
             {{-- Highlights --}}
             <div class="col-span-full">
               <div class="w-full mt-2 grid grid-cols-1">
-                <label for="highlights" class="text-xs text-gray-300  mb-2">Highlights (comma separated)</label>
+                <label for="highlights" class="text-xs text-gray-300  mb-2">Highlights (Colon ':' separated)</label>
                   <textarea name="highlights" id="highlights" rows="2" autocomplete="highlights" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
                   <x-input-error :messages="$errors->get('highlights')" class="mt-2" />
+              </div>
+            </div>
+            {{-- Arrangement Short Description --}}
+            <div class="col-span-full">
+              <div class="w-full mt-2 grid grid-cols-1">
+                <label for="arrangements_description" class="text-xs text-gray-300  mb-2">Arrangements Description</label>
+                  <textarea name="arrangements_description" id="arrangements_description" rows="2" autocomplete="arrangements_description" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                  <x-input-error :messages="$errors->get('arrangements_description')" class="mt-2" />
+              </div>
+            </div>
+            {{-- Arrangement Styles --}}
+            <div class="col-span-full">
+              <div class="w-full mt-2 grid grid-cols-1">
+                <label for="arrangements" class="text-xs text-gray-300  mb-2">Arrangement Styles (Colon ':' separated)</label>
+                  <textarea name="arrangements" id="arrangements" rows="2" autocomplete="arrangements" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                  <x-input-error :messages="$errors->get('arrangements')" class="mt-2" />
               </div>
             </div>
             <!-- location  -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Models\Hall;
 use App\Models\Hotel;
@@ -16,9 +17,26 @@ class HallController extends Controller
     public function show($id){
 
         $hall =Hall::findOrFail($id);
-        $amenities = explode(',', $hall->amenities);
 
-        return view('hall.show',['hall'=>$hall, 'amenities'=>$amenities]);
+           try {
+            $next = Hall::findOrFail($id + 1);
+        } catch (ModelNotFoundException $e) {
+            $next = Hall::findOrFail(1);
+        }
+
+        $amenities = explode(':', $hall->amenities);
+        $package_inclusions = explode(':', $hall->package_inclusions);
+        $arrangements = explode(':', $hall->arrangements);
+
+        return view('hall.show',
+        [
+            'hall'=>$hall, 
+            'amenities'=>$amenities , 
+            'next'=>$next,
+            'package_inclusions'=>$package_inclusions,
+            'arrangements'=>$arrangements,
+            ]
+        );
     }
 
     public function store(Request $request){
@@ -30,8 +48,11 @@ class HallController extends Controller
             'image2'=> ['required', File::image()->max(1024)],
             'image3'=> ['required', File::image()->max(1024)],
             'service_tag'=> 'required|in:accommodation',
-            'capacity'=> 'required|integer|min:1|max:10',
+            'capacity'=> 'required|string',
             'amenities'=> 'required|string',
+            'package_inclusions'=> 'required|string',
+            'arrangements_description'=> 'required|string',
+            'arrangements'=> 'required|string',
         ]);
 
         $attributes['image1'] = $request->file('image')->store('hall-photos', 'public');

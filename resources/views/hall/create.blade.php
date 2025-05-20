@@ -127,7 +127,7 @@
                   <label for="capacity" class="text-xs text-gray-300  mb-2">Capacity</label>
                   <div class="flex items-center rounded-md bg-gray-100/20 pl-3">
                       <div class="shrink-0 text-base text-gray-400 select-none px-3 sm:text-sm/6">Max Capacity</div>
-                      <input type="number" name="capacity" id="capacity" step="0.01" min="0" autocomplete="capacity" class="rounded-md min-w-0 grow py-1.5 pr-3 pl-5 text-base text-black placeholder:text-gray-400 focus:outlin-none bg-gray-100/20 sm:text-sm/6" placeholder="3">
+                      <input type="text" name="capacity" id="capacity" step="0.01" min="0" autocomplete="capacity" class="rounded-md min-w-0 grow py-1.5 pr-3 pl-5 text-base text-black placeholder:text-gray-400 focus:outlin-none bg-gray-100/20 sm:text-sm/6" placeholder="3">
                   <x-input-error :messages="$errors->get('capacity')" class="mt-2" />
                   </div>
                   </div>

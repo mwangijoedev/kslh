@@ -91,8 +91,8 @@
     <!-- Loader Script -->
     <script>
         $(window).on('load', function () {
-            $('#loader').fadeOut(1000, function () {
-                $('#app').fadeIn(1000);
+            $('#loader').fadeOut(500, function () {
+                $('#app').fadeIn(500);
             });
         });
     </script>

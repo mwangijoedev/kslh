@@ -16,14 +16,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->string('package_inclusions');
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag',['mombasa', 'voi', 'ngulia']);
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');
             $table->enum('service_tag', ['conferencing']);
-            $table->integer('capacity');
-            $table->integer('amenities');
+            $table->string('capacity');
+            $table->string('amenities');
+            $table->string('arrangements_description');
+            $table->string('arrangements');
             $table->timestamps();
         });
     }
