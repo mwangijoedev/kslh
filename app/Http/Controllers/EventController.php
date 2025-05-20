@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Hotel;
@@ -17,7 +18,16 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
-        return view('event.show',['event'=>$event]);
+        try {
+            $next = Event::findOrFail($id + 1);
+        } catch (ModelNotFoundException $e) {
+            $next = Event::findOrFail(1);
+        }
+
+        $varieties = explode(':', $event->varieties);
+        $categories = explode(',', $event->categories);
+
+        return view('event.show',['event'=>$event, 'next'=>$next, 'varieties'=>$varieties, 'categories'=>$categories]);
     }
 
 
@@ -26,8 +36,9 @@ class EventController extends Controller
         $attributes = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
+            'varieties' => 'required|max:1000',
             'service_tag' => 'required|string|max:255',
-            'type' => 'required|in:function,recreation,entertainment',
+            'categories' => 'required|max:1000',
             'hotel_tag'=>'required|in:mombasa,voi,ngulia',
             'image1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'image2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',

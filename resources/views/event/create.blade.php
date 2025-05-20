@@ -73,6 +73,14 @@
                       <x-input-error :messages="$errors->get('description')" class="mt-2" />
                       </div>
                   </div>
+                  {{-- Varieties --}}
+                  <div class="col-span-full">
+                      <div class="w-full mt-2 grid grid-cols-1">
+                      <label for="varieties" class="text-xs text-gray-300 mb-2">Event Varieties ( Collon separated ':')</label>
+                      <textarea name="varieties" id="varieties" rows="2" autocomplete="varieties" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                      <x-input-error :messages="$errors->get('varieties')" class="mt-2" />
+                      </div>
+                  </div>
                   {{-- Image1 --}}
                   <div class="col-span-full">
                       <div class="w-full mt-2 grid grid-cols-1">
@@ -121,19 +129,14 @@
                   </div>
                   <x-input-error :messages="$errors->get('service_tag')" class="mt-2" />
               </div>
-              {{-- Event type --}}
-              <div class="col-span-full">
-                  <div class=" w-full mt-2 grid grid-cols-1">
-                      <label for="type" class="text-xs text-gray-300  mb-2">Event Type</label>
-                      <select name="type" id="type" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
-                      <option value="">--Select Event Type--</option>
-                      <option value="function">Function</option>
-                      <option value="recreation">Recreation</option>
-                      <option value="entertainment">Entertainment</option>
-                      </select>
+               {{-- Category --}}
+                  <div class="col-span-full">
+                      <div class="w-full mt-2 grid grid-cols-1">
+                      <label for="categories" class="text-xs text-gray-300 mb-2">Event Categories ( Comma separated ',')</label>
+                      <textarea name="categories" id="categories" rows="2" autocomplete="categories" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                      <x-input-error :messages="$errors->get('categories')" class="mt-2" />
+                      </div>
                   </div>
-                  <x-input-error :messages="$errors->get('type')" class="mt-2" />
-              </div>
               {{-- Hotel Tag --}}
               <div class="col-span-full">
                   <div class=" w-full mt-2 grid grid-cols-1">

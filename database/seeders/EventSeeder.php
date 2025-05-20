@@ -13,8 +13,8 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        Event::factory()->mombasa()->count(10)->create();
-        Event::factory()->ngulia()->count(10)->create();
-        Event::factory()->voi()->count(10)->create();
+        Event::factory()->mombasa()->count(1)->create();
+        Event::factory()->ngulia()->count(1)->create();
+        Event::factory()->voi()->count(1)->create();
     }
 }

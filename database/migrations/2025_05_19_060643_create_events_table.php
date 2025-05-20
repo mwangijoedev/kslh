@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->enum('type', ['function','recreation','entertainment']);
+            $table->string('varieties');
+            $table->string('categories');
             $table->enum('service_tag', ['event']);
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag', ['mombasa', 'ngulia', 'voi']);
