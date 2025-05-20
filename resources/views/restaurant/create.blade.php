@@ -120,16 +120,14 @@
                   </div>
                 </div>
               </div>
-                {{-- Operating Hours --}}
-              <div class="col-span-full">
-                <div class="w-full mt-2 grid grid-cols-1">
-                  <label for="operating_hours" class="text-xs text-gray-300  mb-2">Operating hours</label>
-                    <input type="text" name="operating_hours" id="operating_hours" autocomplete="time" class=" caret-gray-300 rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-gray-300 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="e.g. 8:00 AM - 10:00 PM">
-                    <x-input-error :messages="$errors->get('operating_hours')" class="mt-2" />
-                </div>
-              </div>
-        
-            
+               {{-- Operating Hours --}}
+                  <div class="col-span-full">
+                      <div class="w-full mt-2 grid grid-cols-1">
+                      <label for="operating_hours" class="text-xs text-gray-300 mb-2">Operating Hours ( Comma Separated )</label>
+                      <textarea name="operating_hours" id="operating_hours" rows="2" autocomplete="operating_hours" class="rounded-md bg-gray-100/20 px-3 py-1.5 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6"></textarea>
+                      <x-input-error :messages="$errors->get('operating_hours')" class="mt-2" />
+                      </div>
+                  </div>
               {{-- Image --}}
                 <div class="col-span-full">
                     <div class="w-full mt-2 grid grid-cols-1">

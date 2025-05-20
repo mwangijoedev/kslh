@@ -7,22 +7,30 @@
                 </header>
                 <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                     <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $bar->name }}</h1>
+                        <h1 class="text-2xl font-bold animate-pulse tracking-tight text-gray-900 sm:text-3xl">{{ $bar->name }}</h1>
                     </div>
                     <div class="mt-4 lg:row-span-3 lg:mt-0">
-                        <div class="mx-auto max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+                        <div class=" max-w-2xl sm:px-2 ">
                             <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                                <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full rounded-lg object-cover">
+                                <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full grow rounded-lg object-cover">
+                            </div>
+                            <div class="mt-5 text-amber-800 text-center">
+                              <a href="/bar/show/{{ $next->id }}" class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
+                                <span aria-hidden="true">&rarr;</span>
+                              </a>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
                         <div>
                             <h3 class="sr-only">Description</h3>
                             <div class="space-y-6">
-                                <div class="text-base text-gray-300">🌴🐘🌊 
-                                    <br>
-                                    {{$bar->description}}!✨🚀
+                                <p class="text-base text-gray-300">✨🚀{{$bar->description}}! 🌴🐘🌊</p>
+                                <div class="mt-4 ml-10">
+                                    @foreach ($operating_hours as $operating_hour)
+                                        <p class="text-sm text-gray-800">✔{{ $operating_hour }}</p>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -76,6 +84,7 @@
                             </div>
                         </div>
                         <button type="submit" role="button" tabindex="0" class="mt-10 animate-pulse hover:animate-none transition-all ease-in-out duration-300 cursor-pointer flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to Package cart</button>
+                        
                     </form>
                 </div>
                 <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">

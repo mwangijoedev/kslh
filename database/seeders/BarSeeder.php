@@ -13,7 +13,14 @@ class BarSeeder extends Seeder
      */
     public function run(): void
     {
-            Bar::factory(1)->mombasa()->create();
-            Bar::factory(1)->ngulia()->create();
+            Bar::factory(1)->mombasaBeachBistroBar()->create();
+            Bar::factory(1)->mombasaKaskaziBar()->create();
+            Bar::factory(1)->mombasaPoolBar()->create();
+            Bar::factory(1)->nguliaLeopardViewBar()->create();
+            Bar::factory(1)->nguliaNyatiBar()->create();
+            Bar::factory(1)->voiHyraxBar()->create();
+            Bar::factory(1)->voiMainBar()->create();
+            Bar::factory(1)->voiPoolBar()->create();
+
     }
 }

@@ -19,6 +19,7 @@ class Room extends Model
         'image2',
         'image3',
         'capacity',
+        'quick_amenities',
         'amenities',
         'hotel_id',
         'hotel_tag',

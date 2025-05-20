@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image2');
             $table->string('image3');
             $table->string('service_tag');
+            $table->string('operating_hours')->nullable();
             $table->foreignIdFor(Hotel::class)->constrained()->cascadeOnDelete();
             $table->enum('hotel_tag', ['mombasa', 'voi', 'ngulia']);
             $table->timestamps();

@@ -1,7 +1,6 @@
 <x-layout1>
-<body>
 <div class="bg-gray-950">
-  <div class="pt-6">
+  <div class="pt-2">
     <nav aria-label="Breadcrumb" class=" ml-10 text-xs text-center">
       <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 lg:max-w-7xl ">
         <li>
@@ -102,6 +101,5 @@
     </div>
   </div>
 </div>
-</body>
 </x-layout1>
 

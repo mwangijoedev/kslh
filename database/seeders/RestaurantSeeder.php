@@ -13,9 +13,12 @@ class RestaurantSeeder extends Seeder
      */
     public function run(): void
     {
-       Restaurant::factory(10)->mombasa()->create();
-       Restaurant::factory(10)->ngulia()->create();
-       Restaurant::factory(10)->voi()->create();
+       Restaurant::factory(1)->mombasaRestaurant()->create();
+       Restaurant::factory(1)->mombasaBeachBistroKitchen()->create();
+       Restaurant::factory(1)->mombasaGazeboRestaurant()->create();
+       Restaurant::factory(1)->mombasaWellnessParlor()->create();
+       Restaurant::factory(1)->ngulia()->create();
+       Restaurant::factory(1)->voi()->create();
        
     }
 }

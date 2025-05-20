@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Hotel;
@@ -17,7 +18,20 @@ class RestaurantController extends Controller
 
      public function show($id){
         $restaurant = Restaurant::findOrFail($id);
-        return view('restaurant.show',['restaurant'=>$restaurant]);
+
+         try {
+            $next = Restaurant::findOrFail($id + 1);
+        } catch (ModelNotFoundException $e) {
+            $next = Restaurant::findOrFail(1);
+        }
+
+        $operating_hours = explode(',',$restaurant->operating_hours);
+        
+        return view('restaurant.show',[
+            'restaurant'=>$restaurant, 
+            'operating_hours'=>$operating_hours , 
+            'next'=>$next,
+        ]);
     }
 
     public function store(Request $request){

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bar;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Models\Hotel;
 
@@ -17,7 +18,14 @@ class BarController extends Controller
 
         $bar =Bar::findOrFail($id);
 
-        return view('bar.show',['bar'=>$bar]);
+         try {
+            $next = Bar::findOrFail($id + 1);
+        } catch (ModelNotFoundException $e) {
+            $next = Bar::findOrFail(1);
+        }
+
+         $operating_hours = explode(',',$bar->operating_hours);
+        return view('bar.show',['bar'=>$bar, 'next'=>$next, 'operating_hours'=>$operating_hours ]);
     }
 
 
@@ -31,6 +39,7 @@ class BarController extends Controller
             'image2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'image3' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'service_tag' => 'required|string|max:255',
+            'operating_hours'=> 'nullable|string|max:255',
             'hotel_tag' => 'required|exists:hotels,hotel_tag',
         ]);
 

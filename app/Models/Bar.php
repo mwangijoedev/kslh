@@ -19,6 +19,7 @@ class Bar extends Model
         'service_tag',
         'hotel_id',
         'hotel_tag', 
+        'opertaing_hours',
        ];
 
     public function hotel()

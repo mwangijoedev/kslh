@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');
-            $table->string('operating_hours');
+            $table->string('operating_hours');//separate with a comma delimeter
             $table->timestamps();
 
         });
