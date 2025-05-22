@@ -20,6 +20,7 @@ class BarComponent extends Component
 
         $this->bar = Bar::findOrFail($id);
 
+            //remember to eager lead this with relationships
         $this->hotel = Hotel::where('tag', $this->bar->hotel_tag)->first();
 
          try {

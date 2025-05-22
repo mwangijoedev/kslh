@@ -21,8 +21,9 @@ class EventComponent extends Component
     public $categories;
 
     public function mount($id){
-         $this->event = Event::findOrFail($id);
+        $this->event = Event::findOrFail($id);
 
+            //remember to eager lead this with relationships
         $this->hotel = Hotel::where('tag', $this->event->hotel_tag)->first();
 
         try {
