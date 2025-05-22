@@ -55,9 +55,9 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex gap-x-8 font-audiowide text-sm text-gray-400">
-                    <a href="/hotel/show/ngulia" class="hover:text-amber-700 transition">ngulia</a>
-                    <a href="/hotel/show/voi" class="hover:text-amber-700 transition">voi</a>
-                    <a href="/hotel/show/mombasa" class="hover:text-amber-700 transition">mombasa</a>
+                    <a href="/hotel/ngulia" wire:navigate class="hover:text-amber-700 transition">ngulia</a>
+                    <a href="/hotel/voi" wire:navigate class="hover:text-amber-700 transition">voi</a>
+                    <a href="/hotel/mombasa" wire:navigate class="hover:text-amber-700 transition">mombasa</a>
                 </div>
 
                 <!-- Auth Buttons -->
@@ -74,9 +74,9 @@
 
             <!-- Mobile Menu -->
             <div x-show="open" x-transition class="mt-4 lg:hidden space-y-4 text-sm font-audiowide text-gray-200">
-                <a href="/hotel/show/ngulia" class="block hover:text-amber-700">ngulia</a>
-                <a href="/hotel/show/voi" class="block hover:text-amber-700">voi</a>
-                <a href="/hotel/show/mombasa" class="block hover:text-amber-700">mombasa</a>
+                <a href="/hotel/ngulia" wire:navigate class="block hover:text-amber-700">ngulia</a>
+                <a href="/hotel/voi" wire:navigate class="block hover:text-amber-700">voi</a>
+                <a href="/hotel/mombasa" wire:navigate class="block hover:text-amber-700">mombasa</a>
                 @guest
                     <a href="/login" class="block text-amber-900 hover:text-amber-700">log in</a>
                 @endguest

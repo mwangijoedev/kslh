@@ -1,4 +1,3 @@
-<x-layout1>
 <div class="bg-gray-950">
   <div class="pt-2">
     <nav aria-label="Breadcrumb" class=" ml-10 text-xs text-center">
@@ -32,6 +31,7 @@
     <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
       <div style="background-image: url('{{ asset('storage/'.$hotel->image) }}')" class="bg-cover bg-center col-span-2" ></div>
       <img src="{{ asset('storage/'.$hotel->image) }}" alt="Two each of gray, white, and black shirts laying flat." class="hidden size-full rounded-lg object-cover lg:block">
+      
     </div>
 
     <!-- Package info -->
@@ -89,6 +89,7 @@
             <p class="text-base text-gray-600">🌴🐘🌊{{$hotel->description}}!✨🚀</p>
           </div>
         </div>
+        
         <div class="mt-4">
             <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
               @foreach ($higlights as $higlight )
@@ -96,10 +97,16 @@
               @endforeach
             </ul>
           </div>
+
+        <a wire:navigate href="/hotels"
+            class="mt-5 inline-flex items-center px-4 py-2 border border-indigo-500 
+            text-indigo-300 hover:bg-indigo-600 hover:text-white text-sm font-medium 
+            rounded-md transition duration-300">
+            ALL HOTELS &rarr;
+        </a>
         </div>
       </div>
     </div>
   </div>
 </div>
-</x-layout1>
 

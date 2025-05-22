@@ -16,6 +16,8 @@ use App\Livewire\AllHallsComponent;
 use App\Livewire\AllRestaurantsComponent;
 use App\Livewire\BarComponent;
 use App\Livewire\EventComponent;
+use App\Livewire\HotelComponent;
+use App\Livewire\AllHotelsComponent;
 use App\Livewire\RoomComponent;
 use App\Livewire\AllRoomsComponent;
 use App\Livewire\RestaurantComponent;
@@ -73,8 +75,8 @@ Route::middleware('auth')->group(function () {
 });
 
 //Hotel Routes
-Route::get('/hotel/all', [HotelController::class, 'index']);
-Route::get('/hotel/show/{tag}', [HotelController::class, 'show']);
+Route::get('/hotels', AllHotelsComponent::class);
+Route::get('/hotel/{tag}', HotelComponent::class);
 
 //Room Routes / Accommodation-service routes
 Route::get('/rooms', AllRoomsComponent::class);
