@@ -13,8 +13,10 @@ use App\Http\Controllers\HallController;
 use App\Livewire\AllBarsComponent;
 use App\Livewire\AllEventsComponent;
 use App\Livewire\AllHallsComponent;
+use App\Livewire\AllRestaurantsComponent;
 use App\Livewire\BarComponent;
 use App\Livewire\EventComponent;
+use App\Livewire\RestaurantComponent;
 
 use App\Livewire\HallComponent;
 use Illuminate\Support\Facades\Route;
@@ -74,11 +76,11 @@ Route::get('/hotel/show/{tag}', [HotelController::class, 'show']);
 
 //Room Routes / Accommodation-service routes
 Route::get('/room/all', [RoomController::class, 'index']);
-Route::get('/room/show/{tag}', [RoomController::class, 'show']);
+
 
 //Restaurant Routes / Dining-service routes
-Route::get('/restaurant/all', [RestaurantController::class, 'index']);
-Route::get('/restaurant/show/{tag}', [RestaurantController::class, 'show']);
+Route::get('/restaurants', AllRestaurantsComponent::class);
+Route::get('/restaurant/{id}', RestaurantComponent::class);
 
 //Bar Routes / Bar-service routes
 Route::get('/bars', AllBarsComponent::class);
@@ -90,7 +92,7 @@ Route::get('/events', AllEventsComponent::class);
 Route::get('/event/{id}', EventComponent::class);
 
 //Hall Routes / Conferencing-service routes
-Route::get('/halls', AllBarsComponent::class);
+Route::get('/halls', AllHallsComponent::class);
 Route::get('/hall/{id}', HallComponent::class);
 
 

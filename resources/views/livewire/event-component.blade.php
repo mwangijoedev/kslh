@@ -77,7 +77,7 @@
                     </div>
                     <form method="POST" action="/book/{{ $event->id }}" class="mt-10">
                         @csrf
-                        <div class="mt-10 p-4 border border-gray-200 rounded-xl shadow-sm bg-white">
+                    <div class="mt-10 p-4 border border-gray-200 rounded-xl shadow-sm bg-white">
                         <div class="flex items-center justify-between">
                             <!-- Left: Service Tag -->
                             <h3 class="text-base font-semibold text-gray-800">
@@ -85,7 +85,7 @@
                             </h3>
                             <!-- Right: Hotel Link -->
                             <a href="/hotel/show/{{ $event->hotel_tag }}" 
-                               class="flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                            class="flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                 <span class="relative flex size-3">
                                     <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>
                                     <span class="relative inline-flex size-3 rounded-full bg-indigo-600"></span>

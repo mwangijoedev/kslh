@@ -1,5 +1,5 @@
 <div class="bg-gray-950 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-    <h2 class="text-center text-3xl font-audiowide text-gray-200 mb-10">Explore Our events</h2>
+    <h2 class="text-center text-3xl font-audiowide text-gray-200 mb-10">Explore Our Halls</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         @foreach($halls as $hall)
