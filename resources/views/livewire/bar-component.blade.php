@@ -19,12 +19,12 @@
                               </a>
                             </div>
                                          
-                            <button wire:navigate href="/bars"
+                            <a wire:navigate href="/bars"
                                 class="mt-2 inline-flex items-center px-4 py-2 border border-indigo-500 
                                 text-indigo-300 hover:bg-indigo-600 hover:text-white text-sm font-medium 
                                 rounded-md transition duration-300">
                                 ALL BARS &rarr;
-                            </button>
+                            </a>
                         </div>
                         
                     </div>

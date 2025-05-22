@@ -11,7 +11,10 @@ use App\Http\Controllers\wizardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HallController;
 use App\Livewire\AllBarsComponent;
+use App\Livewire\AllEventsComponent;
 use App\Livewire\BarComponent;
+use App\Livewire\EventComponent;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -81,8 +84,8 @@ Route::get('/bar/{id}', BarComponent::class);
 
 
 //Event Routes / Event-service routes
-Route::get('/event/all', [EventController::class, 'index']);
-Route::get('/event/show/{tag}', [EventController::class, 'show']);
+Route::get('/events', AllEventsComponent::class);
+Route::get('/event/{id}', EventComponent::class);
 
 //Hall Routes / Conferencing-service routes
 Route::get('/hall/all', [HallController::class, 'index']);

@@ -1,5 +1,4 @@
-<x-layout1>
-    <body class="bg-gray-950">
+    <div class="bg-gray-950">
         <div class="bg-gray-950 pb-20 select-none">
             <div class="pt-6">
                 <header>
@@ -10,15 +9,22 @@
                         <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $event->name }}</h1>
                     </div>
                    <div class="mt-4 lg:row-span-3 lg:mt-0">
-                        <div class=" max-w-2xl sm:px-2 ">
+                        <div class=" max-w-2xl sm:px-2 flex flex-col justify-center items-center ">
                             <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
                                 <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full grow rounded-lg object-cover">
                             </div>
-                            <div class="mt-5 text-amber-800 text-center">
-                              <a href="/event/show/{{ $next->id }}" class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
+                            <div class="mt-5 font-audiowide uppercase text-amber-800 text-center">
+                              <a href="/event/{{ $next->id }}" wire:navigate class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
                                 <span aria-hidden="true">&rarr;</span>
                               </a>
                             </div>
+                                         
+                            <a wire:navigate href="/events"
+                                class="mt-2 inline-flex items-center px-4 py-2 border border-indigo-500 
+                                text-indigo-300 hover:bg-indigo-600 hover:text-white text-sm font-medium 
+                                rounded-md transition duration-300">
+                                ALL EVENTS &rarr;
+                            </a>
                         </div>
                     </div>
                     <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
@@ -71,28 +77,23 @@
                     </div>
                     <form method="POST" action="/book/{{ $event->id }}" class="mt-10">
                         @csrf
-                        <div class="mt-10">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-medium text-gray-900">{{ $event->service_tag }}</h3>
-                                <a href="/hotel/show/{{ $event->hotel_tag }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                    <span class="relative flex size-3">
-                                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>
-                                        <span class="relative inline-flex size-3 rounded-full bg-indigo-600"></span>
-                                    </span>
-                                    View Hotel
-                                </a>
-                            </div>
-                             <fieldset aria-label="Package Inclusions" class="mt-4">
-                                <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                                    @foreach ($categories as $category)
-                                        <label class="animate-pulse hover relative flex cursor-pointer items-center justify-center rounded-md border bg-white px-4 py-3 text-sm font-medium text-gray-900 shadow-xs hover:bg-gray-50 focus:outline-hidden sm:flex-1 sm:py-6">
-                                            <span class="text-gray-600 text-xs text-center">✔ {{ $category }}</span>
-                                            <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
-                                        </label>
-                                    @endforeach
-                                </div>
-                            </fieldset>
+                        <div class="mt-10 p-4 border border-gray-200 rounded-xl shadow-sm bg-white">
+                        <div class="flex items-center justify-between">
+                            <!-- Left: Service Tag -->
+                            <h3 class="text-base font-semibold text-gray-800">
+                                {{ $event->service_tag }}
+                            </h3>
+                            <!-- Right: Hotel Link -->
+                            <a href="/hotel/show/{{ $event->hotel_tag }}" 
+                               class="flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                <span class="relative flex size-3">
+                                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>
+                                    <span class="relative inline-flex size-3 rounded-full bg-indigo-600"></span>
+                                </span>
+                                View&nbsp;{{ $hotel->name }}
+                            </a>
                         </div>
+                    </div>
                         <button type="submit" role="button" tabindex="0" class="mt-10 animate-pulse hover:animate-none transition-all ease-in-out duration-300 cursor-pointer flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to Package cart</button>
                     </form>
                 </div>
@@ -101,6 +102,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</x-layout1>
+    </div>
 
