@@ -12,6 +12,9 @@
           <a href="/register" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg transition duration-300">
           Book Your Stay Today 
           </a>
+          <livewire:hello-world/>
+          <livewire:todo/>
+          <livewire:create-post/>
           </div>
         </section>
       </div>

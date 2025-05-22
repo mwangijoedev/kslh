@@ -99,3 +99,12 @@ html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
+.archived{
+  background-color: aqua;
+}
+
+.current{
+  text-decoration: chocolate;
+}

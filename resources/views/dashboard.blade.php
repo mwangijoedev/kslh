@@ -2,6 +2,14 @@
     <header>
       <h2 class="text-gray-300 text-4xl pt-5 text-center font-audiowide bg-gray-950 ">DASHBOARD</h2>
     </header>
+    <!-- To remove -->
+        @extends('layouts.app')
+
+        @section('content')
+            <div class="p-6">
+                @livewire('create-category')
+            </div>
+        @endsection
     <div class="relative h-[1000px] w-full bg-gray-950 text-blue-300 ">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">

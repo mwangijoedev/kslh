@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\wizardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HallController;
+use App\Livewire\CreatePost;
+use App\Livewire\Todo;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 
@@ -88,8 +90,12 @@ Route::get('/hall/all', [HallController::class, 'index']);
 Route::get('/hall/show/{tag}', [HallController::class, 'show']);
 
 Route::get('/package/{id}', Counter::class);
-Route::post('/counter', Counter::class);
 
+
+Route::get('/counter', Counter::class);
+Route::get('/todos', Todo::class);
+Route::get('/posts', CreatePost::class);
+Route::view('/categories', 'category-index');
 
 
 

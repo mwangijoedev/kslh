@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSLH</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles 
     <!-- AlpineJS -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -22,7 +23,7 @@
         
     </style>
 </head>
-
+<!-- Adds CSS and Livewire’s frontend assets -->
 <body class="bg-gradient-to-br from-gray-950 to-blue-950 text-white min-h-screen overflow-x-hidden select-none">
     <!-- Loader -->
     <div id="loader" class="fixed inset-0 z-50 bg-gradient-to-br from-gray-950 to-blue-950 flex flex-col items-center justify-center">
@@ -87,6 +88,8 @@
             {{ $slot }}
         </main>
     </div>
+    <!-- Loads Livewire’s JavaScript to make it interactive -->
+    @livewireScripts
 
     <!-- Loader Script -->
     <script>
