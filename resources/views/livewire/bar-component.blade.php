@@ -1,5 +1,4 @@
-<x-layout1>
-    <body class="bg-gray-950">
+<div class="bg-gray-950">
         <div class="bg-gray-950 pb-20 select-none">
             <div class="pt-6">
                 <header>
@@ -10,15 +9,22 @@
                         <h1 class="text-2xl font-bold animate-pulse tracking-tight text-gray-900 sm:text-3xl">{{ $bar->name }}</h1>
                     </div>
                     <div class="mt-4 lg:row-span-3 lg:mt-0">
-                        <div class=" max-w-2xl sm:px-2 ">
+                        <div class=" max-w-2xl sm:px-2 flex flex-col justify-center items-center ">
                             <div class="col-span-2 hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
                                 <img src="{{ Vite::asset('resources/images/safari.jpg') }}" alt="Center Photo" class="size-full w-full grow rounded-lg object-cover">
                             </div>
-                            <div class="mt-5 text-amber-800 text-center">
-                              <a href="/bar/show/{{ $next->id }}" class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
+                            <div class="mt-5 font-audiowide uppercase text-amber-800 text-center">
+                              <a href="/bar/{{ $next->id }}" wire:navigate class="text-sm cursor-pointer font-bold ">View&nbsp;{{ $next->name }}
                                 <span aria-hidden="true">&rarr;</span>
                               </a>
                             </div>
+                                         
+                            <button wire:navigate href="/bars"
+                                class="mt-2 inline-flex items-center px-4 py-2 border border-indigo-500 
+                                text-indigo-300 hover:bg-indigo-600 hover:text-white text-sm font-medium 
+                                rounded-md transition duration-300">
+                                ALL BARS &rarr;
+                            </button>
                         </div>
                         
                     </div>
@@ -36,7 +42,9 @@
                         </div>
                         <form method="POST" action="/book/{{ $bar->id }}" class="hidden sm:block mt-2 mb-10 sm:flex sm:justify-end">
                             @csrf
-                            <button type="submit" role="button" tabindex="0" class="mt-10 animate-pulse hover:animate-none transition-all ease-in-out duration-300 cursor-pointer flex w-1/2 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to Package cart</button>
+                            <button type="submit" role="button" tabindex="0" class="mt-10 cursor-pointer flex w-1/2 items-center justify-center rounded-md border border-transparent 
+                                bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 
+                                focus:ring-offset-2 focus:outline-hidden"><span class="animate-pulse">Add to Package cart</span></button>
                         </form>
                     </div>
                 </div>
@@ -71,18 +79,24 @@
                     </div>
                     <form method="POST" action="/book/{{ $bar->id }}" class="mt-10">
                         @csrf
-                        <div class="mt-10">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-medium text-gray-900">{{ $bar->service_tag }}</h3>
-                                <a href="/hotel/show/{{ $bar->hotel_tag }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                    <span class="relative flex size-3">
-                                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>
-                                        <span class="relative inline-flex size-3 rounded-full bg-indigo-600"></span>
-                                    </span>
-                                    View Hotel
-                                </a>
-                            </div>
+                    <div class="mt-10 p-4 border border-gray-200 rounded-xl shadow-sm bg-white">
+                        <div class="flex items-center justify-between">
+                            <!-- Left: Service Tag -->
+                            <h3 class="text-base font-semibold text-gray-800">
+                                {{ $bar->service_tag }}
+                            </h3>
+                            <!-- Right: Hotel Link -->
+                            <a href="/hotel/show/{{ $bar->hotel_tag }}" 
+                               class="flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                <span class="relative flex size-3">
+                                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>
+                                    <span class="relative inline-flex size-3 rounded-full bg-indigo-600"></span>
+                                </span>
+                                View&nbsp;{{ $hotel->name }}
+                            </a>
                         </div>
+                    </div>
+
                         <button type="submit" role="button" tabindex="0" class="mt-10 animate-pulse hover:animate-none transition-all ease-in-out duration-300 cursor-pointer flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden">Add to Package cart</button>
                         
                     </form>
@@ -92,6 +106,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</x-layout1>
+    </div>
 

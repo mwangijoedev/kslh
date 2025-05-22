@@ -10,9 +10,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\wizardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HallController;
+use App\Livewire\AllBarsComponent;
+use App\Livewire\BarComponent;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Counter;
-
 
 Route::get('/', function () {
     return view('home');
@@ -76,8 +76,9 @@ Route::get('/restaurant/all', [RestaurantController::class, 'index']);
 Route::get('/restaurant/show/{tag}', [RestaurantController::class, 'show']);
 
 //Bar Routes / Bar-service routes
-Route::get('/bar/all', [BarController::class, 'index']);
-Route::get('/bar/show/{tag}', [BarController::class, 'show']);
+Route::get('/bars', AllBarsComponent::class);
+Route::get('/bar/{id}', BarComponent::class);
+
 
 //Event Routes / Event-service routes
 Route::get('/event/all', [EventController::class, 'index']);
@@ -86,9 +87,6 @@ Route::get('/event/show/{tag}', [EventController::class, 'show']);
 //Hall Routes / Conferencing-service routes
 Route::get('/hall/all', [HallController::class, 'index']);
 Route::get('/hall/show/{tag}', [HallController::class, 'show']);
-
-Route::get('/package/{id}', Counter::class);
-Route::post('/counter', Counter::class);
 
 
 

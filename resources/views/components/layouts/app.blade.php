@@ -1,96 +1,118 @@
-
 <!DOCTYPE html>
-<html lang={{ str_replace('_','-', $lang ?? app()->getLocale()) }} >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title ?? 'Page Title' }}</title>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <title>{{$title ?? 'KSLH'}}</title>
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- jQuery for loader -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        
+    </style>
 </head>
-<body>
-  <div class="loader bg-gray-950 flex flex-cols justify-center items-center ">
-    <p class=" font-audiowide text-sm md:text-4xl animate-pulse text-amber-700 text-center ">KSLH</p>
-  </div>
-<div class="h-screen relative top-0 left-0 bottom-0 right-0 md:relative overflow-scroll no-scrollbar content">
-  <div>
-    <div class="bg-transparent">
-      <header>
-        <nav class="bg-gray-800/20 shadow-xl flex items-center justify-between p-4 lg:px-8 rounded-sm z-4" aria-label="Global">
-          <div class="flex lg:flex-1">
-            <a href="/" wire:navigate class="-m-1.5 p-1.5 hidden sm:block z-1 ">
-              <span class="text-amber-700 font-audiowide font-bold text-xl ">KSLH</span>
-            </a>
-          </div>
-          <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-              <span class="sr-only">Open main menu</span>
-              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            </button>
-          </div>
-          <div class="hidden lg:flex lg:gap-x-12 z-1 font-audiowide text-xs">
-            <a href="/accommodations" wire:navigate class=" text-amber-900 hover:text-amber-700 hover:scale-105 transition-all ease-in-out duration-200 ">ngulia</a>  
-            <a href="/accommodations" wire:navigate class="  text-amber-900 hover:text-amber-700 transition-all ease-in-out duration-200">voi</a>
-            <a href="/accommodations" wire:navigate class=" text-amber-900 hover:text-amber-700 transition-all ease-in-out duration-200">mombasa</a> 
-          </div>
-          @guest
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/login" class="text-xs font-audiowide text-amber-900 z-1 hover:text-amber-700 transition-all ease-in-out duration-500 ">log&nbsp;in <span aria-hidden="true">&rarr;</span></a>
-          </div>
-          @endguest
-          @auth
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="" class="text-xs text-amber-700 z-1 hover:text-amber-900 transition-all ease-in-out duration-500 ">{{ Auth::user()->name;}}<span aria-hidden="true">&rarr;</span></a>
-          </div>
-          @endauth
-           
-        </nav>
-        <!-- Mobile menu, show/hide based on menu open state. -->
-        <!-- <div class="lg:hidden" role="dialog" aria-modal="true"> -->
-          <!-- Background backdrop, show/hide based on slide-over state. -->
-          <!-- <div class="fixed inset-0 z-50"></div>
-          <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+<body class="bg-gradient-to-br from-gray-950 to-blue-950 text-white min-h-screen overflow-x-hidden select-none">
+        <div wire:loading 
+        class="fixed inset-0 z-50 bg-gradient-to-br from-gray-950 to-blue-950 flex flex-col items-center justify-center">
+            <p class="m-0 font-audiowide text-2xl md:text-4xl animate-pulse text-amber-700 text-center">
+                KSLH
+            </p>
+        </div>
+
+
+    <!-- Main App Container -->
+    <div id="app" class=" flex flex-col min-h-screen">
+
+        <!-- Navigation -->
+        <nav x-data="{ open: false }" class="p-4 lg:px-8 shadow-xl relative z-10">
             <div class="flex items-center justify-between">
-              <a href="#" class="-m-1.5 p-1.5">
-                <span class="text-amber-700">KSLH</span>
-              </a>
-              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                <span class="sr-only">Close menu</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="mt-6 flow-root">
-              <div class="-my-6 divide-y divide-gray-500/10">
-                <div class="space-y-2 py-6">
-                <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Ngulia</a>  
-            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Voi</a>
-            <a href="/accommodations" wire:navigate class="hover:text-green-600 transition duration-300">Mombassa</a> 
+                <!-- Logo -->
+                <a href="/" class="text-amber-700 font-audiowide text-2xl font-bold cursor-pointer ">KSLH</a>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button @click="open = !open" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
-                <div class="py-6">
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex gap-x-8 font-audiowide text-sm text-gray-400">
+                    <a href="/hotel/show/ngulia" class="hover:text-amber-700 transition">ngulia</a>
+                    <a href="/hotel/show/voi" class="hover:text-amber-700 transition">voi</a>
+                    <a href="/hotel/show/mombasa" class="hover:text-amber-700 transition">mombasa</a>
                 </div>
-              </div>
+
+                <!-- Auth Buttons -->
+                @guest
+                    <a href="/login" class="hidden lg:block text-gray-300 font-audiowide text-sm hover:text-amber-700 transition">log in</a>
+                @endguest
+                @auth
+                    <div class="hidden lg:flex gap-x-4 font-semibold text-sm">
+                        <a href="/dashboard" class="text-gray-300 hover:text-amber-900">dashboard</a>
+                        <a href="/profile" class="text-gray-300 hover:text-amber-900">profile</a>
+                    </div>
+                @endauth
             </div>
-          </div>
-        </div> -->
-      </header>
-        <main class="relative" >
-            {{  $slot  }}
-        </main>   
+
+            <!-- Mobile Menu -->
+            <div x-show="open" x-transition class="mt-4 lg:hidden space-y-4 text-sm font-audiowide text-gray-200">
+                <a href="/hotel/show/ngulia" class="block hover:text-amber-700">ngulia</a>
+                <a href="/hotel/show/voi" class="block hover:text-amber-700">voi</a>
+                <a href="/hotel/show/mombasa" class="block hover:text-amber-700">mombasa</a>
+                @guest
+                    <a href="/login" class="block text-amber-900 hover:text-amber-700">log in</a>
+                @endguest
+                @auth
+                    <a href="/dashboard" class="block text-amber-700 hover:text-amber-900">Dashboard</a>
+                    <a href="/profile" class="block text-amber-700 hover:text-amber-900">{{ Auth::user()->name }} →</a>
+                @endauth
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            {{ $slot }}
+        </main>
     </div>
-  </div>
-  </div>
-
-  <script>
-    $(window).on('load', function(){
-      $(".loader").fadeOut(1000);
-      $(".content").fadeIn(1000);
-    });
-
-  </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
