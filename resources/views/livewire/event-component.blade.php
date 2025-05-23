@@ -84,7 +84,7 @@
                                 {{ $event->service_tag }}
                             </h3>
                             <!-- Right: Hotel Link -->
-                            <a href="/hotel/show/{{ $event->hotel_tag }}" 
+                            <a href="/hotel/{{ $event->hotel_tag }}" wire:navigate
                             class="flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                 <span class="relative flex size-3">
                                     <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-100 opacity-75"></span>

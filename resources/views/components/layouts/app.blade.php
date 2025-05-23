@@ -94,7 +94,8 @@
 
             <!-- Mobile Menu -->
             <div x-show="open" x-transition class="mt-4 lg:hidden space-y-4 text-sm font-audiowide text-gray-200">
-                <a href="/hotel/ngulia" wire:navigate   
+                   <div class="flex flex-col space-y-2">
+                     <a href="/hotel/ngulia" wire:navigate   
                         @class([
                             'text-amber-700'=>request()->is('hotel/ngulia'),
                             'hover:text-amber-700 transition'=>true
@@ -109,6 +110,7 @@
                             'text-amber-700'=>request()->is('hotel/mombasa'),
                             'hover:text-amber-700 transition'=>true
                             ])>mombasa</a>
+                   </div>
                 @guest
                     <a href="/login" class="block text-amber-900 hover:text-amber-700">log in</a>
                 @endguest
@@ -116,13 +118,13 @@
                     <a href="/dashboard" 
                         @class([
                                     'text-amber-700'=>request()->is('profile'),
-                                    'block text-amber-700 hover:text-amber-900'=>true
+                                    'block text-gray-200 hover:text-amber-900'=>true
                                     ])>Dashboard</a>
                     <a href="/profile"
                         @class([
                                 'text-amber-700'=>request()->is('hotel/mombasa'),
-                                'block text-amber-700 hover:text-amber-900'=>true
-                                ])>{{ Auth::user()->name }} →</a>
+                                'block text-gray-200 hover:text-amber-900'=>true
+                                ])>Profile</a>
                 @endauth
             </div>
         </nav>

@@ -25,6 +25,7 @@ use App\Livewire\EventComponent;
 use App\Livewire\HotelComponent;
 use App\Livewire\Dashboard;
 use App\Livewire\AllHotelsComponent;
+use App\Livewire\HotelRelations;
 use App\Livewire\RoomComponent;
 use App\Livewire\AllRoomsComponent;
 use App\Livewire\RestaurantComponent;
@@ -86,6 +87,11 @@ Route::get('/event/{id}', EventComponent::class);
 //Hall Routes / Conferencing-service routes
 Route::get('/halls', AllHallsComponent::class);
 Route::get('/hall/{id}', HallComponent::class);
+
+//hotel-relations
+Route::get('/mombasa-services', HotelRelations::class);
+Route::get('/ngulia-services', HotelRelations::class);
+Route::get('/voi-services', HotelRelations::class);
 
 
 

@@ -1,37 +1,12 @@
 <div class="bg-gray-950">
   <div class="pt-2">
-    <nav aria-label="Breadcrumb" class=" ml-10 text-xs text-center">
-      <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 lg:max-w-7xl ">
-        <li>
-          <!-- standard home -->
-          <div class="flex items-center">
-            <a href="/hotel/show/mombasa" class="mr-2 text-sm font-medium text-gray-500">Mombasa</a>
-            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
-              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="flex items-center">
-            <a href="/hotel/show/ngulia" class="mr-2 text-sm font-medium text-gray-500">Ngulia</a>
-            <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
-              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-            </svg>
-          </div>
-        </li>
-        <li class="text-sm">
-          <a href="/hotel/show/voi" aria-current="page" class="font-medium text-gray-300 hover:text-gray-600">Voi</a>
-        </li>
-      </ol>
-    </nav>
-     <header>
-      <h2 class="text-gray-300 my-2 text-lg sm:text-4xl text-center font-audiowide">{{$hotel->name}}</h2>
-    </header>
+      <header>
+        <h2 class="text-gray-300 my-2 text-lg sm:text-3xl text-center font-audiowide">{{$hotel->name}}</h2>
+      </header>
     <!-- Package Image gallery -> 4 images  -->
-    <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-      <div style="background-image: url('{{ asset('storage/'.$hotel->image) }}')" class="bg-cover bg-center col-span-2" ></div>
-      <img src="{{ asset('storage/'.$hotel->image) }}" alt="Two each of gray, white, and black shirts laying flat." class="hidden size-full rounded-lg object-cover lg:block">
-      
+    <div class="mx-auto lg:mx-1 mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+      <div style="background-image: url('{{ Vite::asset("resources/images/safari.jpg") }}')" class="bg-cover size-full bg-center col-span-2 rounded-lg" ></div>
+      <img src="{{ Vite::asset("resources/images/palm.jpg") }}" class="hidden size-full rounded-lg object-cover lg:block">
     </div>
 
     <!-- Package info -->
@@ -72,12 +47,12 @@
             </div>
             <p class="sr-only">5 out of 5 stars</p>
             <!-- fetch number of reviews -->
-            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer ">120 reviews</a>
+            <a href="/reviews" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer ">120 reviews</a>
           </div>
         </div>
-          <a href="#" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium 
-                              text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 
-                              focus:ring-offset-2 focus:outline-hidden">Learn More</a>
+          <a href="/{{ $hotel->tag }}-services" wire:navigate class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium 
+            text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 animate-pulse
+            focus:ring-offset-2 focus:outline-hidden">Explore</a>
       </div>
 
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">

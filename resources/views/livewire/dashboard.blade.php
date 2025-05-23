@@ -44,9 +44,6 @@
                         <a href="/profile" class="text-gray-600 text-xs hover:text-amber-700">Edit Profile</a>
                     </div>
                     <div class="pl-5 text-blue-300 text-sm text-start">
-                        <a href="#loyalty-points" class="text-gray-600 text-xs hover:text-amber-700">Loyalty Points</a>
-                    </div>
-                    <div class="pl-5 text-blue-300 text-sm text-start">
                         <a href="#update-payment-info" class="text-gray-600 text-xs hover:text-amber-700">Update Payment info</a>
                     </div>
                     @can('create', Auth::user())

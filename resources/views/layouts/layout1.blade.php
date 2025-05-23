@@ -33,7 +33,7 @@
     <div id="app" class="hidden flex flex-col min-h-screen">
 
         <!-- Navigation -->
-        <nav x-data="{ open: false }" class="p-4 lg:px-8 shadow-xl relative z-10 bg-gradient-to-br from-gray-950 to-blue-950">
+      <nav x-data="{ open: false }" class=" p-4 lg:px-8 shadow-xl relative z-10 bg-gradient-to-br from-gray-950 to-blue-950">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="text-amber-700 font-audiowide text-2xl font-bold cursor-pointer ">KSLH</a>
@@ -50,9 +50,21 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex gap-x-8 font-audiowide text-sm text-gray-400">
-                    <a href="/hotel/show/ngulia" class="hover:text-amber-700 transition">ngulia</a>
-                    <a href="/hotel/show/voi" class="hover:text-amber-700 transition">voi</a>
-                    <a href="/hotel/show/mombasa" class="hover:text-amber-700 transition">mombasa</a>
+                    <a href="/hotel/ngulia" wire:navigate   
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/ngulia'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>ngulia</a>
+                    <a href="/hotel/voi" wire:navigate 
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/voi'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>voi</a>
+                    <a href="/hotel/mombasa" wire:navigate 
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/mombasa'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>mombasa</a>
                 </div>
 
                 <!-- Auth Buttons -->
@@ -61,23 +73,53 @@
                 @endguest
                 @auth
                     <div class="hidden lg:flex gap-x-4 font-semibold text-sm">
-                        <a href="/dashboard" class="text-gray-300 hover:text-amber-900">dashboard</a>
-                        <a href="/profile" class="text-gray-300 hover:text-amber-900">profile</a>
+                        <a href="/dashboard"
+                            @class([
+                                'text-amber-700'=>request()->is('dashboard'),
+                                'text-gray-300 hover:text-amber-900'=>true
+                                ])>dashboard</a>
+                        <a href="/profile"
+                            @class([
+                                'text-amber-700'=>request()->is('profile'),
+                                'text-gray-300 hover:text-amber-900'=>true
+                                ])>profile</a>
                     </div>
                 @endauth
             </div>
 
             <!-- Mobile Menu -->
             <div x-show="open" x-transition class="mt-4 lg:hidden space-y-4 text-sm font-audiowide text-gray-200">
-                <a href="/hotel/show/ngulia" class="block hover:text-amber-700">ngulia</a>
-                <a href="/hotel/show/voi" class="block hover:text-amber-700">voi</a>
-                <a href="/hotel/show/mombasa" class="block hover:text-amber-700">mombasa</a>
+                   <div class="flex flex-col space-y-2">
+                     <a href="/hotel/ngulia" wire:navigate   
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/ngulia'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>ngulia</a>
+                    <a href="/hotel/voi" wire:navigate 
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/voi'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>voi</a>
+                    <a href="/hotel/mombasa" wire:navigate 
+                        @class([
+                            'text-amber-700'=>request()->is('hotel/mombasa'),
+                            'hover:text-amber-700 transition'=>true
+                            ])>mombasa</a>
+                   </div>
                 @guest
                     <a href="/login" class="block text-amber-900 hover:text-amber-700">log in</a>
                 @endguest
                 @auth
-                    <a href="/dashboard" class="block text-amber-700 hover:text-amber-900">Dashboard</a>
-                    <a href="/profile" class="block text-amber-700 hover:text-amber-900">{{ Auth::user()->name }} →</a>
+                    <a href="/dashboard" 
+                        @class([
+                                    'text-amber-700'=>request()->is('profile'),
+                                    'block text-gray-200 hover:text-amber-900'=>true
+                                    ])>Dashboard</a>
+                    <a href="/profile"
+                        @class([
+                                'text-amber-700'=>request()->is('hotel/mombasa'),
+                                'block text-gray-200 hover:text-amber-900'=>true
+                                ])>Profile</a>
                 @endauth
             </div>
         </nav>
