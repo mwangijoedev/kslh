@@ -16,8 +16,14 @@ use App\Livewire\AllHallsComponent;
 use App\Livewire\AllRestaurantsComponent;
 use App\Livewire\BarComponent;
 use App\Livewire\CreateBar;
+use App\Livewire\CreateHall;
+use App\Livewire\CreateEvent;
+use App\Livewire\CreateHotel;
+use App\Livewire\CreateRestaurant;
+use App\Livewire\CreateRoom;
 use App\Livewire\EventComponent;
 use App\Livewire\HotelComponent;
+use App\Livewire\Dashboard;
 use App\Livewire\AllHotelsComponent;
 use App\Livewire\RoomComponent;
 use App\Livewire\AllRoomsComponent;
@@ -39,42 +45,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-	Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('verified')->name('dashboard');
+	Route::get('/dashboard/default', [UserController::class, 'dashboard'])->middleware('verified')->name('dashboard.default');
+	Route::get('/dashboard', Dashboard::class)->middleware('verified')->name('dashboard');
 	Route::post('book/{id}', [BookingController::class, 'store']);
 	Route::get('/wizard/{step}',[wizardController::class, 'create'])->name('wizard');
-	//Hotel creation Routes
-	Route::get('/hotel/create', [HotelController::class, 'create'])->middleware('can:create')->name('hotel.create');
-	Route::post('/hotel/store', [HotelController::class, 'store'])->middleware('can:create')->name('hotel.store');
-	Route::get('/hotel/edit/{id}', [HotelController::class, 'edit'])->middleware('can:create')->name('hotel.edit');
-
-	//Room creation Routes (formerly accommodation)
-	Route::get('/room/create', [RoomController::class, 'create'])->middleware('can:create')->name('room.create');
-	Route::post('/room/store', [RoomController::class, 'store'])->middleware('can:create')->name('room.store');
-	Route::get('/room/edit/{id}', [RoomController::class, 'edit'])->middleware('can:create')->name('room.edit');
-
-	//Restaurant creation Routes
-	Route::get('/restaurant/create', [RestaurantController::class, 'create'])->middleware('can:create')->name('restaurant.create');
-	Route::post('/restaurant/store', [RestaurantController::class, 'store'])->middleware('can:create')->name('restaurant.store');
-	Route::get('/restaurant/edit/{id}', [RestaurantController::class, 'edit'])->middleware('can:create')->name('restaurant.edit');
-
-	//Bar creation Routes
-	Route::get('/bar/create', [BarController::class, 'create'])->middleware('can:create')->name('bar.create');
-	Route::post('/bar/store', [BarController::class, 'store'])->middleware('can:create')->name('bar.store');
-	Route::get('/bar/edit/{id}', [BarController::class, 'edit'])->middleware('can:create')->name('bar.edit');
-	Route::get('/create-bar', CreateBar::class);
+});
 
 
-	//Event creation Routes
-	Route::get('/event/create', [EventController::class, 'create'])->middleware('can:create')->name('event.create');
-	Route::post('/event/store', [EventController::class, 'store'])->middleware('can:create')->name('event.store');
-	Route::get('/event/edit/{id}', [EventController::class, 'edit'])->middleware('can:create')->name('event.edit');
-
-	//Hall creation Routes
-	Route::get('/hall/create', [HallController::class, 'create'])->middleware('can:create')->name('hall.create');
-	Route::post('/hall/store', [HallController::class, 'store'])->middleware('can:create')->name('hall.store');
-	Route::get('/hall/edit/{id}', [HallController::class, 'edit'])->middleware('can:create')->name('hall.edit');
-
-
+Route::middleware(['auth', 'can:create'])->group(function () {
+	Route::get('/create-hotel', CreateHotel::class)->name('create-hotel');
+	Route::get('/create-room', CreateRoom::class)->name('create-room');
+	Route::get('/create-restaurant', CreateRestaurant::class)->name('create-restaurant');
+	Route::get('/create-bar', CreateBar::class)->name('create-bar');
+	Route::get('/create-event', CreateEvent::class)->name('create-event');
+	Route::get('/create-hall', CreateHall::class)->name('create-hall');
 });
 
 //Hotel Routes

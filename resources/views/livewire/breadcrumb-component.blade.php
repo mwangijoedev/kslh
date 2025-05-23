@@ -3,7 +3,7 @@
         <li>
           <!-- standard home -->
           <div class="flex items-center">
-            <a href="/create-hotel" 
+            <a href="/create-hotel" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-hotel'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true
@@ -16,7 +16,7 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/create-hotel" 
+            <a href="/create-room" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-room'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true
@@ -29,7 +29,7 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/create-hotel" 
+            <a href="/create-restaurant" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-restaurant'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true
@@ -42,7 +42,7 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/create-hotel" 
+            <a href="/create-bar" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-bar'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true
@@ -55,7 +55,7 @@
         </li>
         <li>
           <div class="flex items-center">
-            <a href="/create-hotel" 
+            <a href="/create-hall" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-hall'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true
@@ -67,7 +67,7 @@
           </div>
         </li>
         <li class="text-sm">
-          <a href="/create-hotel" 
+          <a href="/create-event" wire:navigate
                 @class([
                     'text-amber-700'=>request()->is('create-event'),
                     'text-sm font-medium hover:text-gray-400 transition'=>true

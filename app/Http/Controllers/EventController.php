@@ -34,15 +34,15 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
-            'varieties' => 'required|max:1000',
-            'service_tag' => 'required|string|max:255',
-            'categories' => 'required|max:1000',
-            'hotel_tag'=>'required|in:mombasa,voi,ngulia',
-            'image1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image3' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+           // 'name' => 'required|string|max:255',
+           // 'description' => 'required|string|max:1000',
+            //'varieties' => 'required|max:1000',
+            //'service_tag' => 'required|string|max:255',
+            //'categories' => 'required|max:1000',
+            //'hotel_tag'=>'required|in:mombasa,voi,ngulia',
+           // 'image1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            //'image2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+           // 'image3' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $attributes['image1'] = $request->file('image')->store('event-photos', 'public');

@@ -4,7 +4,7 @@
       <h2 class="text-gray-300 my-2 text-4xl text-center font-audiowide ">CREATE A BAR</h2>
     </header>
    <div class="md:mx-30 md:mb-20 rounded-sm bg-gray-950 h-screen">
-      <form method="POST" action="/bar/store" class="md:mb-20 p-5 glass bg-gray-950 h-screen overflow-scroll no-scrollbar" enctype="multipart/form-data" >
+      <form wire:submit.prevent="save" wire:confirm="Save This Bar ?" class="md:mb-20 p-5 glass bg-gray-950 h-screen overflow-scroll no-scrollbar" enctype="multipart/form-data" >
           @csrf
           <!-- Inputs  -->
       <!--Closure 1 -->   
@@ -97,19 +97,27 @@
           </div>
           </div>
           <!-- submit button  -->
-          <div class=" absolute right-0 sm:grid sm:grid-cols-2 sm:gap-4 mt-1o w-1/2 pl-10 flex flex-col justify-between items-center space-y-4 ">
-          <div class="col-span-1">
-              <button type="submit" 
-              class="px-4 bg-blue-950 text-white font-semibold hover:bg-white/50 hover:text-black
-                  transition-all ease-in-out duration-200 text-xs px-12 py-2 mt-5 rounded-md">
-                  Save
-              </button>
-          </div>
-          <div class="col-span-1">
-              <a href="/dashboard" class="px-4 bg-red-500 text-black font-semibold hover:bg-red-800 hover:text-black
-                  transition-all ease-in-out duration-200 text-xs px-12 py-2 rounded-md">Cancel</a>
-          </div>
-          </div>
+        <div class=" absolute right-0 sm:grid sm:grid-cols-2 sm:gap-4 mt-1 w-1/2 pl-10 flex flex-col justify-between items-center space-y-4 ">
+            <div class="col-span-1">
+            <button type="submit"
+                class="px-4 bg-blue-950 text-white font-semibold hover:bg-white/50 hover:text-black
+                    transition-all ease-in-out duration-200 text-xs px-12 py-2 mt-4 rounded-md">
+                    Save
+            </button>
+            </div>
+            <div class="col-span-1">
+            <a href="/dashboard" wire:navigate class="px-4 bg-red-500 text-black font-semibold hover:bg-red-800 hover:text-black
+                    transition-all ease-in-out duration-200 text-xs px-12 py-2 rounded-md">Cancel</a>
+            </div>
+        </div>
+        <div class="absolute right-50 mt-15">
+            <a wire:navigate href="/create-hall"
+                class="mt-5 inline-flex items-center px-4 py-2 border border-indigo-500 
+                text-indigo-300 hover:bg-indigo-600 hover:text-white text-sm font-medium 
+                rounded-md transition duration-300">
+                    create hall &rarr;
+            </a>
+        </div>
       </form>
    </div>
 </div>
