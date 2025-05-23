@@ -14,30 +14,30 @@ class HallController extends Controller
         return view('hall.create');
     }
 
-    public function show($id){
+    // public function show($id){
 
-        $hall =Hall::findOrFail($id);
+    //     $hall =Hall::findOrFail($id);
 
-           try {
-            $next = Hall::findOrFail($id + 1);
-        } catch (ModelNotFoundException $e) {
-            $next = Hall::findOrFail(1);
-        }
+    //        try {
+    //         $next = Hall::findOrFail($id + 1);
+    //     } catch (ModelNotFoundException $e) {
+    //         $next = Hall::findOrFail(1);
+    //     }
 
-        $amenities = explode(':', $hall->amenities);
-        $package_inclusions = explode(':', $hall->package_inclusions);
-        $arrangements = explode(':', $hall->arrangements);
+    //     $amenities = explode(':', $hall->amenities);
+    //     $package_inclusions = explode(':', $hall->package_inclusions);
+    //     $arrangements = explode(':', $hall->arrangements);
 
-        return view('hall.show',
-        [
-            'hall'=>$hall, 
-            'amenities'=>$amenities , 
-            'next'=>$next,
-            'package_inclusions'=>$package_inclusions,
-            'arrangements'=>$arrangements,
-            ]
-        );
-    }
+    //     return view('hall.show',
+    //     [
+    //         'hall'=>$hall, 
+    //         'amenities'=>$amenities , 
+    //         'next'=>$next,
+    //         'package_inclusions'=>$package_inclusions,
+    //         'arrangements'=>$arrangements,
+    //         ]
+    //     );
+    // }
 
     public function store(Request $request){
         $attributes = $request->validate([

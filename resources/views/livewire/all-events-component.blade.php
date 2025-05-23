@@ -3,7 +3,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         @foreach($events as $event)
-            <div class="bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+            <div wire:key="{{ $event->id }}" class="bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
                 <div class="h-48 sm:h-56 w-full overflow-hidden">
                     <img src="{{ Vite::asset('resources/images/hut.jpg') }}"
                          alt="{{ $event->name }}"

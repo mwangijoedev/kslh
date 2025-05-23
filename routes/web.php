@@ -15,6 +15,7 @@ use App\Livewire\AllEventsComponent;
 use App\Livewire\AllHallsComponent;
 use App\Livewire\AllRestaurantsComponent;
 use App\Livewire\BarComponent;
+use App\Livewire\CreateBar;
 use App\Livewire\EventComponent;
 use App\Livewire\HotelComponent;
 use App\Livewire\AllHotelsComponent;
@@ -60,6 +61,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/bar/create', [BarController::class, 'create'])->middleware('can:create')->name('bar.create');
 	Route::post('/bar/store', [BarController::class, 'store'])->middleware('can:create')->name('bar.store');
 	Route::get('/bar/edit/{id}', [BarController::class, 'edit'])->middleware('can:create')->name('bar.edit');
+	Route::get('/create-bar', CreateBar::class);
+
 
 	//Event creation Routes
 	Route::get('/event/create', [EventController::class, 'create'])->middleware('can:create')->name('event.create');

@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-950 to-blue-950 text-white min-h-screen overflow-x-hidden select-none">
+<body class="bg-gray-950 text-white min-h-screen overflow-x-hidden select-none">
         <div wire:loading 
         class="fixed inset-0 z-50 bg-gradient-to-br from-gray-950 to-blue-950 flex flex-col items-center justify-center">
             <p class="m-0 font-audiowide text-2xl md:text-4xl animate-pulse text-amber-700 text-center">
@@ -38,7 +38,7 @@
     <div id="app" class=" flex flex-col min-h-screen">
 
         <!-- Navigation -->
-        <nav x-data="{ open: false }" class="p-4 lg:px-8 shadow-xl relative z-10">
+        <nav x-data="{ open: false }" class=" p-4 lg:px-8 shadow-xl relative z-10 bg-gradient-to-br from-gray-950 to-blue-950">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="text-amber-700 font-audiowide text-2xl font-bold cursor-pointer ">KSLH</a>

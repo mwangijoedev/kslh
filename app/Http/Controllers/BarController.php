@@ -14,24 +14,23 @@ class BarController extends Controller
         return view('bar.create');
     }
 
-     public function show($id){
+    //  public function show($id){
 
-        $bar =Bar::findOrFail($id);
+    //     $bar =Bar::findOrFail($id);
 
-         try {
-            $next = Bar::findOrFail($id + 1);
-        } catch (ModelNotFoundException $e) {
-            $next = Bar::findOrFail(1);
-        }
+    //      try {
+    //         $next = Bar::findOrFail($id + 1);
+    //     } catch (ModelNotFoundException $e) {
+    //         $next = Bar::findOrFail(1);
+    //     }
 
-         $operating_hours = explode(',',$bar->operating_hours);
-        return view('bar.show',['bar'=>$bar, 'next'=>$next, 'operating_hours'=>$operating_hours ]);
-    }
+    //      $operating_hours = explode(',',$bar->operating_hours);
+    //     return view('bar.show',['bar'=>$bar, 'next'=>$next, 'operating_hours'=>$operating_hours ]);
+    // }
 
 
     public function store(Request $request)
     {
-        dd($request->all());
         $attributes = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
